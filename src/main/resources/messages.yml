@@ -1,0 +1,12 @@
+prefix: '&8[&4UHC&ccenario&8]&7'
+senderNotPlayer: '%prefix% &cDieser Befehl ist nicht für die Konsole ausgelegt!'
+
+scenarios:
+  enabled: '%prefix%§7 Das Szenario %scenario%&7 wurde &aaktiviert&7!'
+  disabled: '%prefix%§7 Das Szenario %scenario%&7 wurde &cdeaktiviert&7!'
+
+voting:
+  added: '%prefix%§7 Man kann nun für das Szenario %scenario%&7 abstimmen&7!'
+  removed: '%prefix%§7 Das Szenario %scenario%&7 ist nun nicht mehr abstimmbar&7!'
+  result: '%prefix%§7 Das Szenario %scenario%&7 hat &e%votes% Stimmen&7 erhalten und wird nun aktiviert&7!'
+  noresult: '%prefix%§c Es konnte für kein Szenario abgestimmt werden!'

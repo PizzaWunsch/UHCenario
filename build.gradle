@@ -1,0 +1,51 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id 'java'
+}
+
+
+group 'dev.pizzawunsch'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven { url = 'https://oss.sonatype.org/content/repositories/snapshots' }
+    maven { url = 'https://oss.sonatype.org/content/repositories/central' }
+    maven { url = 'file://D:/lib/repositories/spigot.jar'}
+
+}
+
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+dependencies {
+    compileOnly('org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT')
+    compileOnly 'org.spigotmc:spigot:1.8.8-R0.1-SNAPSHOT'
+
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+    testCompileOnly 'org.projectlombok:lombok:1.18.22'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
+}
+
+shadowJar {
+    relocate('org.simpleyaml', 'ir.ciph3r.eris.libs')
+    relocate('org.yaml', 'ir.ciph3r.eris.libs')
+}
+
+shadow {
+    dependencies {
+        implementation 'me.carleslc.Simple-YAML:Simple-Yaml:1.8'
+        implementation 'org.reflections:reflections:0.9.9-RC1'
+        implementation group: 'org.yaml', name: 'snakeyaml', version: '1.30'
+        implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.29'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}

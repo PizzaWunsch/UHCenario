@@ -1,0 +1,402 @@
+# IMPORTANT: Change this configuration file only if you have some experience with it!
+
+# You need to restart this plugin to apply the new setting for the inventories.
+
+# These following arguments can be taken as a key to create its own inventories:
+# open: - Enter an inventory name after the colon, and it will open it.
+# scenario: - Enter a scenario after the colon, and the scenario will be enabled or disabled.
+# voting: (result) - Enter a scenario after the colon, and the scenario will be votable or not.
+#                    Use the result argument after the colon to get the result of the most voted scenarios.
+# paged:next/back/first - Enter one of these arguments, and it will be change the page of the inventory (Only works in paged inventories).
+# command: - Enter a command after the colon, and it will execute them.
+#            Placeholders:
+#               %player% - The players name.
+#               %x%      - The x coordinate of the player.
+#               %y%      - The y coordinate of the player.
+#               %z%      - The z coordinate of the player.
+#               %world%  - The world where the player currently is.
+# close - Closes the inventory that is currently opened.
+
+inventories:
+  # This inventory is the main menu of the /scenarios command of the administrators.
+  admin:
+    rows: 3
+    name: "§4UHC§cenario §8┃ §fHauptmenü"
+    paged: false
+    items:
+      fill:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: "§8 "
+        lore:
+          - ''
+      26:
+        material: BARRIER
+        id: 0
+        name: '§8» §cSchließen'
+        key: 'close'
+        lore:
+          - '§8§m--------------'
+          - '§7Schließt dieses Inventar.'
+      11:
+        material: PAPER
+        id: 0
+        name: '§8» §fVoting Einstellungen'
+        key: 'open:voting'
+        lore:
+          - '§8§m--------------'
+          - '§7Erlaubt es dir das'
+          - '§7Voting der Szenarien'
+          - '§7zu verwalten.'
+      13:
+        material: CHEST
+        id: 0
+        name: '§8» §6Szenarien Einstellungen'
+        key: 'open:scenarios'
+        lore:
+          - '§8§m--------------'
+          - '§7Erlaubt es dir,'
+          - '§7die aufgelisteten Szenarien,'
+          - '§7zu aktivieren oder zu'
+          - '§7deaktivieren.'
+      15:
+        material: REDSTONE
+        id: 0
+        name: '§8» §cZurücksetzten der Einstellungen'
+        key: 'reset'
+        lore:
+          - '§8§m--------------'
+          - '§7Deaktiviert alle Szenarien'
+          - '§7und deaktiviert das Voting'
+          - '§7mit allen Votes.'
+  # This is the main menu of the voting system settings.
+  voting:
+    rows: 3
+    name: "§4UHC§cenario §8┃ §fVoting"
+    paged: false
+    items:
+      fill:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: "§8 "
+        lore:
+          - ''
+      12:
+        material: BOOK_AND_QUILL
+        id: 0
+        name: '§8» §6Voting einrichten'
+        key: 'open:voting_selection'
+        lore:
+          - '§8§m--------------'
+          - '§7Wähle aus, welche Szenarien'
+          - '§7ausgewählt werden sollen.'
+      14:
+        material: GOLD_INGOT
+        id: 0
+        name: '§8» §6Szenario aktivieren'
+        key: 'voting:result'
+        lore:
+          - '§8§m--------------'
+          - '§7Aktiviert das Szenario,'
+          - '§7welches die meisten'
+          - '§7Stimmen hat.'
+      26:
+        material: BARRIER
+        id: 0
+        name: '§8» §cZurück'
+        key: 'open:admin'
+        lore:
+          - '§8§m--------------'
+          - '§7Bringt dich zurück'
+          - '§7zum Hauptmenü.'
+
+  # The inventory where every player can vote for scenario.
+  voting_vote:
+    name: "§4UHC§cenario §8┃ §fVoting"
+    rows: 6
+    listRows: 4
+    paged: true
+    items:
+      46:
+        material: EMPTY_MAP
+        id: 0
+        name: '§8» §cEine Seite zurück'
+        key: 'paged:back'
+        lore:
+          - '§8§m--------------'
+          - '§7Bringt dich eine'
+          - '§7Seite zurück.'
+      47:
+        material: PAPER
+        id: 0
+        name: '§8» §aDie nächste Seite'
+        key: 'paged:next'
+        lore:
+          - '§8§m--------------'
+          - '§7Bringt dich zur'
+          - '§7nächsten Seite.'
+      53:
+        material: BARRIER
+        id: 0
+        name: '§8» §cSchließen'
+        key: 'close'
+        lore:
+          - '§8§m--------------'
+          - '§7Schließt das Inventar'
+      36:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      37:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      38:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      39:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      40:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      41:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      42:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      43:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      44:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+  # This lists all scenarios that are votable.
+  voting_selection:
+    name: "§4UHC§cenario §8┃ §fVoting"
+    rows: 6
+    listRows: 4
+    paged: true
+    items:
+      46:
+        material: EMPTY_MAP
+        id: 0
+        name: '§8» §cEine Seite zurück'
+        key: 'paged:back'
+        lore:
+          - '§8§m--------------'
+          - '§7Bringt dich eine'
+          - '§7Seite zurück.'
+      47:
+        material: PAPER
+        id: 0
+        name: '§8» §aDie nächste Seite'
+        key: 'paged:next'
+        lore:
+          - '§8§m--------------'
+          - '§7Bringt dich zur'
+          - '§7nächsten Seite.'
+      53:
+        material: BARRIER
+        id: 0
+        name: '§8» §cZurück'
+        key: 'open:voting'
+        lore:
+          - '§8§m--------------'
+          - '§7Bringt dich zurück'
+          - '§7zum Hauptmenü.'
+      36:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      37:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      38:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      39:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      40:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      41:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      42:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      43:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      44:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+  # This lists all scenarios that are activeable.
+  scenarios:
+    name: "§4UHC§cenario §8┃ §fScenarios"
+    rows: 6
+    listRows: 4
+    paged: true
+    items:
+      46:
+        material: EMPTY_MAP
+        id: 0
+        name: '§8» §cEine Seite zurück'
+        key: 'paged:back'
+        lore:
+          - '§8§m--------------'
+          - '§7Bringt dich eine'
+          - '§7Seite zurück.'
+      47:
+        material: PAPER
+        id: 0
+        name: '§8» §aDie nächste Seite'
+        key: 'paged:next'
+        lore:
+          - '§8§m--------------'
+          - '§7Bringt dich zur'
+          - '§7nächsten Seite.'
+      53:
+        material: BARRIER
+        id: 0
+        name: '§8» §cZurück'
+        key: 'open:admin'
+        lore:
+          - '§8§m--------------'
+          - '§7Bringt dich zurück'
+          - '§7zum Hauptmenü.'
+      36:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      37:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      38:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      39:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      40:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      41:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      42:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      43:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      44:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''

@@ -1,0 +1,21 @@
+scenarios:
+  nohunger:
+    name: '&cNoHunger'
+    material: COOKED_BEEF
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Kunher ist'
+      - '§cdeaktiviert§7!'
+  nofall:
+    name: '&fNoFall'
+    material: FEATHER
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Fallschaden ist'
+      - '§cdeaktiviert§7!'
