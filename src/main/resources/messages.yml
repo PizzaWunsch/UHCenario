@@ -1,12 +1,28 @@
 prefix: '&8[&4UHC&ccenario&8]&7'
 senderNotPlayer: '%prefix% &cDieser Befehl ist nicht für die Konsole ausgelegt!'
 
+reset: '%prefix%§c Alle Einstellungen der Szenarien und des Votings wurden zurückgesetzt!'
+
 scenarios:
   enabled: '%prefix%§7 Das Szenario %scenario%&7 wurde &aaktiviert&7!'
   disabled: '%prefix%§7 Das Szenario %scenario%&7 wurde &cdeaktiviert&7!'
+  items:
+    enabled: ' &8(&aaktiviert&8)'
+  fireless:
+    cannotEnchant: '%prefix%§c Dieses Enchantment ist deaktiviert!'
+  goldenheads:
+    name: '&6&lGoldener Head'
+  paranoia:
+    coordinates: '%prefix%&7 Das sind die Koordinaten von&e %player%&8:  &e%x%, %y%, %z%'
+  timebomb:
+    timer: '§e%player% §8» §7%time%'
+  showhealths:
+    hearts: '§c❤'
 
 voting:
   added: '%prefix%§7 Man kann nun für das Szenario %scenario%&7 abstimmen&7!'
   removed: '%prefix%§7 Das Szenario %scenario%&7 ist nun nicht mehr abstimmbar&7!'
   result: '%prefix%§7 Das Szenario %scenario%&7 hat &e%votes% Stimmen&7 erhalten und wird nun aktiviert&7!'
   noresult: '%prefix%§c Es konnte für kein Szenario abgestimmt werden!'
+  alreadyVoted: '%prefix%§7 Du hast deine Stimme für die Szenarien auf &e%scenario% &7geändert!'
+  voted: '%prefix%§7 Du hast für das Szenario &e%scenario%&7 abgestimmt.'

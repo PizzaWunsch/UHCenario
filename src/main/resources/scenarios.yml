@@ -1,4 +1,296 @@
 scenarios:
+  showhealth:
+    name: '§4ShowHealth'
+    material: INK_SACK
+    id: 1
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Zeigt dir die Herzen'
+      - '§7anderer Spieler an.'
+  xtraapple:
+    name: '§cXtraApple'
+    material: APPLE
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Erhöht die Wahrscheinlichkeit,'
+      - '§7dass Äpfel von Bäumen fallen.'
+  timber:
+    name: '§2Timber'
+    material: SAPLING
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Erleichtert das Abbauen'
+      - '§7von Bäumen.'
+  nonether:
+    name: '§5NoNether'
+    material: OBSIDIAN
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Das erstellen/betreten eines'
+      - '§7Nether-Portales ist §cdeaktiviert§7.'
+  soup:
+    name: '§6Soup'
+    material: MUSHROOM_SOUP
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Beim konsumieren von Suppen,'
+      - '§7werden paar Herzen regeneriert.'
+  timebomb:
+    name: '§6TimeBomb'
+    material: CHEST
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Beim Töten eines Spielers'
+      - '§7werden alle Items in einer Kiste spawnen.'
+  noenchants:
+    name: '§5NoEnchants'
+    material: ENCHANTMENT_TABLE
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Das Verzaubern von Items'
+      - '§7ist §cdeaktivert§7.'
+  rodless:
+    name: '§cRodLess'
+    material: FISHING_ROD
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Das nutzen von Angeln'
+      - '§7ist §cdeaktivert§7.'
+  bowless:
+    name: '§cBowless'
+    material: BOW
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Das nutzen von Bögen'
+      - '§7ist §cdeaktivert§7.'
+  bookception:
+    name: '§dBookception'
+    material: ENCHANTED_BOOK
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Es droppt beim töten eines Spielers'
+      - '§7ein zufällig verzaubertes Buch.'
+  goldless:
+    name: '§eGoldLess'
+    material: GOLD_INGOT
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Es droppt kein Gold.'
+  diamondless:
+    name: '§bDiamondLess'
+    material: DIAMOND
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Es droppen keine Diamanten.'
+  paranoia:
+    name: '§2Paranoia'
+    material: FERMENTED_SPIDER_EYE
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Die Koordinaten werden beim'
+      - '§7abbauen von seltenen Erzen veröffentlicht.'
+  trippleores:
+    name: '§aTripleOres'
+    material: EMERALD_ORE
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Alle Erze droppen dreifach.'
+  cutclean:
+    name: '§6CutClean'
+    material: GOLD_INGOT
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Alle Erze werden direkt gebraten.'
+  doubleores:
+    name: '§fDoubleOres'
+    material: IRON_ORE
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Alle Erze droppen doppelt.'
+  enchanteddeath:
+    name: '§5EnchantedDeath'
+    material: ENCHANTMENT_TABLE
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Beim sterben eines Spieler'
+      - '§7dropt ein Verzauberungstisch mit&7.'
+  dolphins:
+    name: '§9Dolphins'
+    material: WATER_LILY
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Sei im Wasser so schnell'
+      - '§7wie ein Delfin&7.'
+  barebones:
+    name: '&bBareBones'
+    material: DIAMOND
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Wenn ein Spieler stirbt,'
+      - '§7fallen zum Loot noch weitere'
+      - '§7Diamanten mit runter.'
+  cateyes:
+    name: '&3CatEyes'
+    material: EYE_OF_ENDER
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Jeder Spieler bekommt'
+      - '§7Nachtsicht&7.'
+  uhc:
+    name: '&eUHC'
+    material: GOLDEN_APPLE
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Naturelles Regenerieren'
+      - '§7ist &cdeaktiviert&7.'
+  maxenchantment:
+    name: '&5MaxEnchantments'
+    material: ENCHANTED_BOOK
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Jegliche Verzauberungen'
+      - '§7werden direkt auf das'
+      - '§7höchste Level verzaubert.'
+  goldenheads:
+    name: '&6GoldenHeads'
+    material: GOLDEN_APPLE
+    id: 1
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Beim töten eines Spielers'
+      - '§7bekommt man ein &6GoldenHead&7.'
+      - '§7Dieser gibt dir bessere Effekte,'
+      - '§7als ein normaler goldener Apfel.'
+  hasteyboys:
+    name: '&bHasteyBoys'
+    material: DIAMOND_PICKAXE
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Erhalte beim Craften von Tools'
+      - '§7direkt Effizienz 3.'
+  longshot:
+    name: '&6LongShot'
+    material: BOW
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Der Schaden des Bogens'
+      - '§7verdoppelt sich ab einer'
+      - '§7sDistanz von 25 Blöcken.'
+  blocked:
+    name: '&7Blocked'
+    material: BEDROCK
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Deaktiviert das Abbauen seiner'
+      - '§7eigenen gesetzten Blöcke.'
+  oldenchantments:
+    name: '&dOldEnchantments'
+    material: ENCHANTED_BOOK
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Aktiviert den 1.7'
+      - '§7Verzauberungstisch.'
+  webcage:
+    name: '&fWebCage'
+    material: WEB
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Beim sterben eines Spielers,'
+      - '§7entsteht eine Kugel'
+      - '§7aus Spinnenweben.'
+  absorptionless:
+    name: '&6AbsorptionLess'
+    material: INK_SACK
+    id: 11
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Man erhält §ckeine§7 zusätzlichen'
+      - '§7Herzen beim konsumieren eines'
+      - '§7goldenen Apfels.'
   nohunger:
     name: '&cNoHunger'
     material: COOKED_BEEF
@@ -7,7 +299,7 @@ scenarios:
     votable: false
     lore:
       - '§8§m------------'
-      - '§7Kunher ist'
+      - '§7Hunger ist'
       - '§cdeaktiviert§7!'
   nofall:
     name: '&fNoFall'
@@ -18,4 +310,14 @@ scenarios:
     lore:
       - '§8§m------------'
       - '§7Fallschaden ist'
+      - '§cdeaktiviert§7!'
+  fireless:
+    name: '&cFireless'
+    material: FLINT_AND_STEEL
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Feuerschaden ist'
       - '§cdeaktiviert§7!'

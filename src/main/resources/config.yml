@@ -1,0 +1,6 @@
+# Allows you to configure some scenarios.
+scenarios:
+  timebomb:
+    time: 30
+  barebones:
+    diamonds: 5

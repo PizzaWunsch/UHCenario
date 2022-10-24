@@ -16,6 +16,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.List;
+import java.util.Random;
 
 /**
  * This class handles the main class of the uhcenario plugin which handles all relevant variables and methods of this plugin.
@@ -34,6 +35,7 @@ public class UHCenario extends JavaPlugin {
     private InventoryConfiguration inventoryConfiguration;
     private MessageConfiguration messageConfiguration;
     private ScenarioConfiguration scenarioConfiguration;
+    private Random random;
 
     /**
      * Initializes all instance variables of the uhcenario plugin and runs all tasks if needed.
@@ -41,6 +43,7 @@ public class UHCenario extends JavaPlugin {
     public void onEnable() {
         // Initializes the instance variables of the uhcenario plugin.
         instance = this;
+        this.random = new Random();
         this.mainConfiguration = new MainConfiguration();
         this.inventoryConfiguration = new InventoryConfiguration();
         this.messageConfiguration = new MessageConfiguration();
@@ -78,6 +81,18 @@ public class UHCenario extends JavaPlugin {
      */
     public boolean isPaged(String key) {
         return this.inventoryConfiguration.isPaged(key);
+    }
+
+    /**
+     * @param min minimal number
+     * @param max maximal number
+     * @return a number with a random number between the two given numbers
+     */
+    public int getRandomNumberInRange(int min, int max) {
+        if (min >= max) {
+            throw new IllegalArgumentException("max must be greater than min");
+        }
+        return random.nextInt((max - min) + 1) + min;
     }
 
     /**

@@ -3,6 +3,7 @@ package dev.pizzawunsch.listener;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import dev.pizzawunsch.UHCenario;
+import dev.pizzawunsch.utils.ScenarioPlayer;
 import dev.pizzawunsch.utils.inventory.Button;
 import dev.pizzawunsch.utils.inventory.PagedPane;
 import dev.pizzawunsch.utils.item.ItemBuilder;
@@ -44,6 +45,19 @@ public class InventoryClickListener implements Listener {
 
             String interactKey = editor.getNBTTagCompound().getString("interactKey");
             if(interactKey != null) {
+                if (interactKey.equals("reset")) {
+                    Scenario.getScenarios().forEach(scenario -> {
+                        scenario.setVotable(false);
+                        scenario.setVotes(0);
+                        scenario.setEnabled(false);
+                    });
+                    ScenarioPlayer.getScenarioPlayers().forEach(scenarioPlayer -> {
+                        scenarioPlayer.setAlreadyVoted(false);
+                        scenarioPlayer.setVotedScenario(null);
+                    });
+                    player.sendMessage(UHCenario.getInstance().getMessage("reset"));
+                    player.closeInventory();
+                }
                 // if the key is closed so they closes the inventory of the player.
                 if(interactKey.equals("close"))
                     player.closeInventory();
