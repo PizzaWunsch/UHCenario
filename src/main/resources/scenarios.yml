@@ -1,4 +1,15 @@
 scenarios:
+  killswitch:
+    name: '§cKillSwitch'
+    material: WOOD_SWORD
+    id: 1
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Tötest du ein Spieler,'
+      - '§7wird dein Inventar mit dem'
+      - '§7des getöteten Spielers getauscht.'
   bowswitch:
     name: '§6BowSwitch'
     material: BOW

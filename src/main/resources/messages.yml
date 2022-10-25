@@ -18,6 +18,9 @@ scenarios:
     timer: '§e%player% §8» §7%time%'
   showhealths:
     hearts: '§c❤'
+  killswitch:
+    killed: '%prefix%&7 Du hast nun das Inventar von &e%player%&7.'
+
 
 voting:
   added: '%prefix%§7 Man kann nun für das Szenario %scenario%&7 abstimmen&7!'
