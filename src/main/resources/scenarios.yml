@@ -1,4 +1,15 @@
 scenarios:
+  bowswitch:
+    name: '§6BowSwitch'
+    material: BOW
+    id: 1
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Tauscht dich mit den'
+      - '§7Spieler, den du mit einem Pfeil'
+      - '§7getroffen hast.'
   showhealth:
     name: '§4ShowHealth'
     material: INK_SACK
