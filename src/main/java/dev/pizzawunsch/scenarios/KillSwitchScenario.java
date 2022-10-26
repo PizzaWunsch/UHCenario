@@ -22,6 +22,10 @@ public class KillSwitchScenario extends Scenario implements Listener {
         super("killswitch");
     }
 
+    /**
+     * Changes the killer's inventory with the inventory of the dead player.
+     * @param event the corresponding player death event.
+     */
     @EventHandler
     public void onDeath(PlayerDeathEvent event) {
         if (this.isEnabled()) {
