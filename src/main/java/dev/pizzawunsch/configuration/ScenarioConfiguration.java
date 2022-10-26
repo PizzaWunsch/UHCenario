@@ -31,16 +31,23 @@ public class ScenarioConfiguration extends AbstractConfiguration {
     public ScenarioConfiguration read() {
         // Loops all configuration from the scenarios yaml file.
         for(String key : this.getConfig().getConfigurationSection("scenarios").getKeys(false)) {
-            Material material = Material.getMaterial(this.getConfig().getString("scenarios." + key + ".material"));
-            String name = ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("scenarios." + key + ".name"));
-            byte subid = Byte.parseByte(this.getConfig().getString("scenarios." + key + ".id"));
-            boolean enabled = this.getConfig().getBoolean("scenarios." + key + ".enabled");
-            boolean votable = this.getConfig().getBoolean("scenarios." + key + ".votable");
-            List<String> lore = Lists.newArrayList();
-            for(String loreString : this.getConfig().getStringList("scenarios." + key + ".lore"))
-                lore.add(ChatColor.translateAlternateColorCodes('&', loreString));
-            // Setting up all relevant variables of the scenario plugin.
-            Scenario scenario = Scenario.getUnregisteredScenario(key);
+           register(key);
+        }
+        return this;
+    }
+
+    public void register(String key) {
+        Material material = Material.getMaterial(this.getConfig().getString("scenarios." + key + ".material"));
+        String name = ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("scenarios." + key + ".name"));
+        byte subid = Byte.parseByte(this.getConfig().getString("scenarios." + key + ".id"));
+        boolean enabled = this.getConfig().getBoolean("scenarios." + key + ".enabled");
+        boolean votable = this.getConfig().getBoolean("scenarios." + key + ".votable");
+        List<String> lore = Lists.newArrayList();
+        for(String loreString : this.getConfig().getStringList("scenarios." + key + ".lore"))
+            lore.add(ChatColor.translateAlternateColorCodes('&', loreString));
+        // Setting up all relevant variables of the scenario plugin.
+        Scenario scenario = Scenario.getUnregisteredScenario(key);
+        if(scenario != null) {
             scenario.setMaterial(material);
             scenario.setName(name);
             scenario.setSubid(subid);
@@ -49,6 +56,5 @@ public class ScenarioConfiguration extends AbstractConfiguration {
             scenario.setVotable(votable);
             scenario.setRegistered(true);
         }
-        return this;
     }
 }

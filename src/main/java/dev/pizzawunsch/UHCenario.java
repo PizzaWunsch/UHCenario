@@ -9,7 +9,6 @@ import dev.pizzawunsch.utils.inventory.Button;
 import dev.pizzawunsch.utils.scenario.Scenario;
 import lombok.Getter;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
@@ -52,7 +51,16 @@ public class UHCenario extends JavaPlugin {
         this.scenarioConfiguration = new ScenarioConfiguration().read();
         // Registering all commands and listeners.
         this.register("dev.pizzawunsch.commands", "dev.pizzawunsch.listener");
+    }
 
+    /**
+     * Registering a new scenario into the uhcenario plugin.
+     * @param scenario the scenario that should be added.
+     */
+    public void registerScenario(Scenario scenario) {
+        if (Listener.class.isAssignableFrom(scenario.getClass()))
+            Bukkit.getPluginManager().registerEvents((Listener) scenario, UHCenario.getInstance());
+        UHCenario.getInstance().getScenarioConfiguration().register(scenario.getKey());
     }
 
     /**
