@@ -37,6 +37,23 @@ public class ScenarioConfiguration extends AbstractConfiguration {
     }
 
     public void register(String key) {
+        // Creates a fallback scenario into the configuration file that avoids issues on loading the scenarios.
+        while(this.getConfig().getConfigurationSection("scenarios." + key) == null) {
+            try {
+                this.getConfig().set("scenarios." + key + ".material", Material.BARRIER.name());
+                this.getConfig().set("scenarios." + key + ".name", "&cFallback-Name");
+                this.getConfig().set("scenarios." + key + ".id", 0);
+                this.getConfig().set("scenarios." + key + ".enabled", false);
+                this.getConfig().set("scenarios." + key + ".votable", false);
+                List<String> lore = Lists.newArrayList();
+                lore.add("&cStandart-Lore");
+                this.getConfig().set("scenarios." + key + ".lore", lore);
+                this.getConfig().save();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        // Gettong all relevant variables from the scenarios configuration file.
         Material material = Material.getMaterial(this.getConfig().getString("scenarios." + key + ".material"));
         String name = ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("scenarios." + key + ".name"));
         byte subid = Byte.parseByte(this.getConfig().getString("scenarios." + key + ".id"));
