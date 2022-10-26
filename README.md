@@ -6,6 +6,8 @@ Dieses Plugin lässt sich grundlegend bis auf die letzten Items in jeweiligen In
 Somit haben Administatoren die Möglichkeit, das Plugin auf deren Designideen einzurichten und die Szenarien so einzustellen,
 sodass Sie den Spielern den größtmöglichen Spielspaß garantieren können.
 
+**Wichtig:** Bitte beachtet, dass bei der gradle.build <b>immer</b> eine Spigot-Repository hinterlegt ist, welche die CraftBukkit-API mit beinhaltet!
+
 ## Erstellen eigener Szenarien
 
 ### Erstelle eine neue Szenario-Klasse:
