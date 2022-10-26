@@ -1,8 +1,31 @@
 scenarios:
+  instanttnt:
+    name: '§4InstantTNT'
+    material: TNT
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Tötest du ein Spieler,'
+      - '§7bekommst du 5 TNT,'
+      - '§7die beim Platzen sogut'
+      - '§7wie direkt explodieren.'
+  fastgetaway:
+    name: '§bFastGetaway'
+    material: POTION
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Tötest du ein Spieler,'
+      - '§7bekommst du für 45 Sekunden'
+      - '§7den Geschwindigkeits-Effekt.'
   killswitch:
     name: '§cKillSwitch'
     material: WOOD_SWORD
-    id: 1
+    id: 0
     enabled: false
     votable: false
     lore:
@@ -13,7 +36,7 @@ scenarios:
   bowswitch:
     name: '§6BowSwitch'
     material: BOW
-    id: 1
+    id: 0
     enabled: false
     votable: false
     lore:

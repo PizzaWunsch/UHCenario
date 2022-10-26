@@ -4,3 +4,5 @@ scenarios:
     time: 30
   barebones:
     diamonds: 5
+  fastgetaway:
+    time: 30

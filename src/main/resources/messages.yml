@@ -20,7 +20,8 @@ scenarios:
     hearts: '§c❤'
   killswitch:
     killed: '%prefix%&7 Du hast nun das Inventar von &e%player%&7.'
-
+  fastgetaway:
+    killed: '%prefix%&7 Du hast nun für §e%time% Sekunden §7den §bGeschwindigkeitseffekt§7 bekommen!'
 
 voting:
   added: '%prefix%§7 Man kann nun für das Szenario %scenario%&7 abstimmen&7!'

@@ -113,8 +113,8 @@ inventories:
   # The inventory where every player can vote for scenario.
   voting_vote:
     name: "§4UHC§cenario §8┃ §fVoting"
-    rows: 5
-    listRows: 3
+    rows: 6
+    listRows: 4
     paged: true
     items:
       46:
@@ -209,8 +209,8 @@ inventories:
   # This lists all scenarios that are votable.
   voting_selection:
     name: "§4UHC§cenario §8┃ §fVoting"
-    rows: 5
-    listRows: 3
+    rows: 6
+    listRows: 4
     paged: true
     items:
       46:
@@ -306,8 +306,8 @@ inventories:
   # This lists all scenarios that are activeable.
   scenarios:
     name: "§4UHC§cenario §8┃ §fScenarios"
-    rows: 5
-    listRows: 3
+    rows: 6
+    listRows: 4
     paged: true
     items:
       46:
