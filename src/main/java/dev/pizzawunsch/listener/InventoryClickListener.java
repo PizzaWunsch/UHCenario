@@ -163,7 +163,7 @@ public class InventoryClickListener implements Listener {
                     if(pagedPane != null) {
                         String[] keys = interactKey.split(":");
                         String inventoryKey = keys[1];
-                        if(inventoryKey.equalsIgnoreCase("back") && pagedPane.getCurrentIndex() > 1)
+                        if(inventoryKey.equalsIgnoreCase("back") && pagedPane.getCurrentIndex() > 0)
                             pagedPane.selectPage(pagedPane.getCurrentIndex() - 1);
                         else if (inventoryKey.equalsIgnoreCase("next") && pagedPane.getCurrentPage() < pagedPane.getPageAmount())
                             pagedPane.selectPage(pagedPane.getCurrentPage());
