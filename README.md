@@ -15,7 +15,7 @@ sodass Sie den Spielern den größtmöglichen Spielspaß garantieren können.
   Diese wird auch direkt vom Plugin registriert.
 - Muss eine Aktion beim Aktivieren/Deaktivieren eines Szenarios ausgeführt werden, implementiere die Executable-Klasse,
   die vom Szenario-Plugin bereitgestellt wird.
-- Gebe in den Konstruktor _[super(...)]_, einen Szenario-Key ein, der für die Identifikation des Szenarios, benötigt wird.
+- Gebe in den Konstruktor _[super(...)]_, einen Szenario-Key ein, der für die Identifikation des Szenarios benötigt wird.
 ```java
 public class ExampleSzenario extends Scenario implements Listener, Executable {
     
