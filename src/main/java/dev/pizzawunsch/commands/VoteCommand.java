@@ -39,7 +39,7 @@ public class VoteCommand extends AbstractCommand {
             for(Scenario scenario : Scenario.getScenarios()) {
                 if(scenario.isRegistered())
                     if(scenario.isVotable()) {
-                        buttons.add(new Button(new ItemBuilder(scenario.getMaterial(), scenario.getSubid()).amount(scenario.getVotes()).name(scenario.getName()).lore(scenario.getLore()).nbtTag("cancelInteract", true).nbtTag("interactKey", "vote:" + scenario.getKey()).build()));
+                        buttons.add(new Button(new ItemBuilder(scenario.getMaterial(), scenario.getSubid()).amount(scenario.getVotes()).name(scenario.getName()).nbtTag("plugin", UHCenario.getInstance().getName()).lore(scenario.getLore()).nbtTag("cancelInteract", true).nbtTag("interactKey", "vote:" + scenario.getKey()).build()));
                     }
             }
             // opens the voting inventory for the player.

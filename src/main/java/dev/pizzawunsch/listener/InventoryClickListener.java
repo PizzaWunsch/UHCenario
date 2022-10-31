@@ -177,6 +177,31 @@ public class InventoryClickListener implements Listener {
                             pagedPane.selectPage(0);
                     }
                 }
+                if (interactKey.startsWith("vote:")) {
+                    String[] keys = interactKey.split(":");
+                    String scenarioKey = keys[1];
+                    Scenario scenario = Scenario.getScenario(scenarioKey);
+                    if (scenario != null) {
+                        ScenarioPlayer scenarioPlayer = ScenarioPlayer.getScenarioPlayer(player.getUniqueId());
+                        if (scenarioPlayer != null)
+                            if (!scenarioPlayer.isAlreadyVoted()) {
+                                scenarioPlayer.setVotedScenario(scenario);
+                                scenarioPlayer.setAlreadyVoted(true);
+                                scenario.setVotes(scenario.getVotes() + 1);
+                                player.sendMessage(UHCenario.getInstance().getMessage("voting.voted").replaceAll("%scenario%", scenario.getName()));
+                            } else {
+                                Scenario lastVoted = scenarioPlayer.getVotedScenario();
+                                if (lastVoted != null) {
+                                    lastVoted.setVotes(lastVoted.getVotes() - 1);
+                                    scenario.setVotes(scenario.getVotes() + 1);
+                                    scenarioPlayer.setVotedScenario(scenario);
+                                    scenarioPlayer.setAlreadyVoted(true);
+                                    player.sendMessage(UHCenario.getInstance().getMessage("voting.alreadyVoted").replaceAll("%scenario%", scenario.getName()));
+                                }
+                            }
+                        player.closeInventory();
+                    }
+                }
             }
 
          }
