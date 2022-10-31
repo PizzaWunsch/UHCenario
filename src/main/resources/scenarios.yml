@@ -1,4 +1,15 @@
 scenarios:
+  veinminer:
+    name: '§7Veinminer'
+    material: COAL_BLOCK
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Beim abbauen eines Blockes,'
+      - '§7werden alle Erze daneben'
+      - '§7auch abgebaut.'
   instanttnt:
     name: '§4InstantTNT'
     material: TNT

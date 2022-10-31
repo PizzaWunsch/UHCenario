@@ -2,6 +2,7 @@ package dev.pizzawunsch.configuration;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import dev.pizzawunsch.UHCenario;
 import dev.pizzawunsch.utils.inventory.Button;
 import dev.pizzawunsch.utils.inventory.PagedPane;
 import dev.pizzawunsch.utils.item.ItemBuilder;
@@ -84,7 +85,7 @@ public class InventoryConfiguration extends AbstractConfiguration {
             for(String loreString : this.getConfig().getStringList("inventories." + key + ".items.fill.lore"))
                 lore.add(ChatColor.translateAlternateColorCodes('&', loreString));
             for (int i = 0; i < inventory.getSize() ; i++)
-                inventory.setItem(i, new ItemBuilder(material, id).name(itemName).lore(lore).nbtTag("cancelInteract", true).build());
+                inventory.setItem(i, new ItemBuilder(material, id).name(itemName).lore(lore).nbtTag("plugin", UHCenario.getInstance().getName()).nbtTag("cancelInteract", true).build());
         }
         for (String itemKey : this.getConfig().getConfigurationSection("inventories." + key + ".items").getKeys(false)) {
             if(!itemKey.equals("fill")) {
@@ -97,7 +98,7 @@ public class InventoryConfiguration extends AbstractConfiguration {
                     List<String> lore = Lists.newArrayList();
                     for(String loreString : this.getConfig().getStringList("inventories." + key + ".items." + slot + ".lore"))
                         lore.add(ChatColor.translateAlternateColorCodes('&', loreString));
-                    inventory.setItem(slot, new ItemBuilder(material, id).name(itemName).lore(lore).nbtTag("cancelInteract", true).nbtTag("interactKey", interactKey).build());
+                    inventory.setItem(slot, new ItemBuilder(material, id).name(itemName).lore(lore).nbtTag("plugin", UHCenario.getInstance().getName()).nbtTag("cancelInteract", true).nbtTag("interactKey", interactKey).build());
                 }
             }
         }

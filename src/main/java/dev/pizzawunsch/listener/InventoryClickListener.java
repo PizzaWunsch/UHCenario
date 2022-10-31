@@ -38,6 +38,12 @@ public class InventoryClickListener implements Listener {
             if(!event.getCurrentItem().hasItemMeta()) return;;
 
             ItemStackEditor editor = new ItemStackEditor(event.getCurrentItem());
+
+            String pluginName = editor.getNBTTagCompound().getString("plugin");
+
+            if(pluginName == null) return;
+            if(!pluginName.equals(UHCenario.getInstance().getName())) return;
+
             // if interactions with this item should be canceled
             if (editor.getNBTTagCompound().getBoolean("cancelInteract"))
                 // canceling interaction with this select item
@@ -72,9 +78,9 @@ public class InventoryClickListener implements Listener {
                                 if(scenario.isRegistered()) {
                                     if(!scenario.isEnabled()) {
                                         if(scenario.isVotable())
-                                            buttons.add(new Button(new ItemBuilder(scenario.getMaterial(), scenario.getSubid()).glow().name(scenario.getName()).lore(scenario.getLore()).nbtTag("cancelInteract", true).nbtTag("interactKey", "voting:" + scenario.getKey()).build()));
+                                            buttons.add(new Button(new ItemBuilder(scenario.getMaterial(), scenario.getSubid()).glow().nbtTag("plugin", UHCenario.getInstance().getName()).name(scenario.getName()).lore(scenario.getLore()).nbtTag("cancelInteract", true).nbtTag("interactKey", "voting:" + scenario.getKey()).build()));
                                         else
-                                            buttons.add(new Button(new ItemBuilder(scenario.getMaterial(), scenario.getSubid()).name(scenario.getName()).lore(scenario.getLore()).nbtTag("cancelInteract", true).nbtTag("interactKey", "voting:" + scenario.getKey()).build()));
+                                            buttons.add(new Button(new ItemBuilder(scenario.getMaterial(), scenario.getSubid()).nbtTag("plugin", UHCenario.getInstance().getName()).name(scenario.getName()).lore(scenario.getLore()).nbtTag("cancelInteract", true).nbtTag("interactKey", "voting:" + scenario.getKey()).build()));
                                     }
                                 }
                             });
@@ -83,9 +89,9 @@ public class InventoryClickListener implements Listener {
                             Scenario.getScenarios().forEach(scenario -> {
                                 if(scenario.isRegistered()) {
                                     if(scenario.isEnabled())
-                                        buttons.add(new Button(new ItemBuilder(scenario.getMaterial(), scenario.getSubid()).glow().name(scenario.getName()).lore(scenario.getLore()).nbtTag("cancelInteract", true).nbtTag("interactKey", "scenario:" + scenario.getKey()).build()));
+                                        buttons.add(new Button(new ItemBuilder(scenario.getMaterial(), scenario.getSubid()).glow().nbtTag("plugin", UHCenario.getInstance().getName()).name(scenario.getName()).lore(scenario.getLore()).nbtTag("cancelInteract", true).nbtTag("interactKey", "scenario:" + scenario.getKey()).build()));
                                     else
-                                        buttons.add(new Button(new ItemBuilder(scenario.getMaterial(), scenario.getSubid()).name(scenario.getName()).lore(scenario.getLore()).nbtTag("cancelInteract", true).nbtTag("interactKey", "scenario:" + scenario.getKey()).build()));
+                                        buttons.add(new Button(new ItemBuilder(scenario.getMaterial(), scenario.getSubid()).nbtTag("plugin", UHCenario.getInstance().getName()).name(scenario.getName()).lore(scenario.getLore()).nbtTag("cancelInteract", true).nbtTag("interactKey", "scenario:" + scenario.getKey()).build()));
                                 }
                             });
                         }

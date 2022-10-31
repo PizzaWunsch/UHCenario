@@ -3,8 +3,10 @@ package dev.pizzawunsch.scenarios;
 import dev.pizzawunsch.UHCenario;
 import dev.pizzawunsch.utils.item.ItemBuilder;
 import dev.pizzawunsch.utils.scenario.Scenario;
+import net.minecraft.server.v1_8_R3.BlockPosition;
 import org.bukkit.*;
 import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,6 +14,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -60,8 +63,38 @@ public class BlockBreakScenario extends Scenario implements Listener {
                 }
             }
         }
-        // breaking block
-        this.dropBlock(player, block, event.getExpToDrop());
+
+        if (Scenario.getScenario("veinminer").isEnabled()) {
+            if(block.getType().name().contains("ORE"))
+                if(this.isEnabled())
+                    getRelatives(block).forEach(ores -> getRelatives(ores).forEach((relative) -> this.dropBlock(player, relative, event.getExpToDrop())));
+                else
+                    getRelatives(block).forEach(ores -> getRelatives(ores).forEach((relative) -> relative.breakNaturally(player.getItemInHand())));
+        } else {
+            // breaking block
+            this.dropBlock(player, block, event.getExpToDrop());
+        }
+    }
+
+    /**
+     * Returns a list with all related blocks of the given block.
+     * @param block the block that got breaked.
+     * @return a list with all blocks.
+     */
+    private ArrayList<Block> getRelatives(Block block) {
+        ArrayList<Block> blocks = new ArrayList<>();
+        for (int radius = 1; radius < 4; radius++) {
+            byte b1;
+            int i;
+            BlockFace[] arrayOfBlockFace;
+            for (i = (arrayOfBlockFace = BlockFace.values()).length, b1 = 0; b1 < i; ) {
+                BlockFace bf = arrayOfBlockFace[b1];
+                if (block.getRelative(bf, radius).getType().equals(block.getType()))
+                    blocks.add(block.getRelative(bf, radius));
+                b1++;
+            }
+        }
+        return blocks;
     }
 
     /**
@@ -84,8 +117,6 @@ public class BlockBreakScenario extends Scenario implements Listener {
         if (this.isEnabled()) {
             // if player is in survival mode
             if (player.getGameMode().equals(GameMode.SURVIVAL)) {
-                // clearing drops of block and play a effect
-                block.getWorld().playEffect(block.getLocation().clone().add(0.5, 0.5, 0.5), Effect.SMOKE, 5);
                 switch (block.getType()) {
                     case DIAMOND_ORE:
                         if (player.getItemInHand().getType().equals(Material.DIAMOND_PICKAXE)
