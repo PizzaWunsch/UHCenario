@@ -35,23 +35,19 @@ public class ShowHealthScenario extends Scenario implements Listener, Executable
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
         Scoreboard scoreboard = player.getScoreboard();
+
         if(this.isEnabled()) {
             Objective objective = scoreboard.getObjective("indicator") != null ? scoreboard.getObjective("indicator") : scoreboard.registerNewObjective("indicator", "health");
             objective.setDisplayName(UHCenario.getInstance().getMessage("scenarios.showhealths.hearts"));
             objective.setDisplaySlot(DisplaySlot.BELOW_NAME);
-        }
-    }
-
-    @EventHandler
-    public void onPlayerQuit(PlayerQuitEvent event) {
-        Player player = event.getPlayer();
-        Scoreboard scoreboard = player.getScoreboard();
-        if(this.isEnabled()) {
+            player.setScoreboard(scoreboard);
+        } else {
             Objective objective = scoreboard.getObjective("indicator") != null ? scoreboard.getObjective("indicator") : null;
             if(objective != null) {
                 objective.unregister();
             }
-
+            player.setScoreboard(scoreboard);
+            scoreboard.clearSlot(DisplaySlot.BELOW_NAME);
         }
     }
 
@@ -59,11 +55,10 @@ public class ShowHealthScenario extends Scenario implements Listener, Executable
     public void onEnable() {
         for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
             Scoreboard scoreboard = onlinePlayer.getScoreboard();
-            if(this.isEnabled()) {
-                Objective objective = scoreboard.getObjective("indicator") != null ? scoreboard.getObjective("indicator") : scoreboard.registerNewObjective("indicator", "health");
-                objective.setDisplayName(UHCenario.getInstance().getMessage("scenarios.showhealths.hearts"));
-                objective.setDisplaySlot(DisplaySlot.BELOW_NAME);
-            }
+            Objective objective = scoreboard.getObjective("indicator") != null ? scoreboard.getObjective("indicator") : scoreboard.registerNewObjective("indicator", "health");
+            objective.setDisplayName(UHCenario.getInstance().getMessage("scenarios.showhealths.hearts"));
+            objective.setDisplaySlot(DisplaySlot.BELOW_NAME);
+            onlinePlayer.setScoreboard(scoreboard);
         }
     }
 
@@ -71,12 +66,12 @@ public class ShowHealthScenario extends Scenario implements Listener, Executable
     public void onDisable() {
         for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
             Scoreboard scoreboard = onlinePlayer.getScoreboard();
-            if(this.isEnabled()) {
-                Objective objective = scoreboard.getObjective("indicator") != null ? scoreboard.getObjective("indicator") : null;
-                if(objective != null) {
-                    objective.unregister();
-                }
+            Objective objective = scoreboard.getObjective("indicator") != null ? scoreboard.getObjective("indicator") : null;
+            if(objective != null) {
+                objective.unregister();
             }
+            onlinePlayer.setScoreboard(scoreboard);
+            scoreboard.clearSlot(DisplaySlot.BELOW_NAME);
         }
     }
 }
