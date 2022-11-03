@@ -22,54 +22,61 @@ import org.bukkit.scoreboard.Scoreboard;
  */
 public class ShowHealthScenario extends Scenario implements Listener, Executable {
 
-    private Scoreboard scoreboard;
-    private Objective objective;
 
     /**
      * Adding the scenario into the local storage list.
      */
     public ShowHealthScenario() {
         super("showhealth");
-
-        this.scoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
-        this.objective = this.scoreboard.getObjective("indicator") != null ? this.scoreboard.getObjective("indicator") : this.scoreboard.registerNewObjective("indicator", "health");
-        this.objective.setDisplaySlot(DisplaySlot.BELOW_NAME);
-        this.objective.setDisplayName(UHCenario.getInstance().getMessage("scenarios.showhealths.hearts"));
     }
 
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
+        Scoreboard scoreboard = player.getScoreboard();
         if(this.isEnabled()) {
-            if(!player.getScoreboard().equals(this.scoreboard))
-                player.setScoreboard(this.scoreboard);
+            Objective objective = scoreboard.getObjective("indicator") != null ? scoreboard.getObjective("indicator") : scoreboard.registerNewObjective("indicator", "health");
+            objective.setDisplayName(UHCenario.getInstance().getMessage("scenarios.showhealths.hearts"));
+            objective.setDisplaySlot(DisplaySlot.BELOW_NAME);
         }
     }
 
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent event) {
         Player player = event.getPlayer();
+        Scoreboard scoreboard = player.getScoreboard();
         if(this.isEnabled()) {
-            if(player.getScoreboard().equals(this.scoreboard))
-                player.setScoreboard(Bukkit.getScoreboardManager().getMainScoreboard());
+            Objective objective = scoreboard.getObjective("indicator") != null ? scoreboard.getObjective("indicator") : null;
+            if(objective != null) {
+                objective.unregister();
+            }
+
         }
     }
 
     @Override
     public void onEnable() {
         for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
-            if(!onlinePlayer.getScoreboard().equals(this.scoreboard))
-                onlinePlayer.setScoreboard(this.scoreboard);
-
+            Scoreboard scoreboard = onlinePlayer.getScoreboard();
+            if(this.isEnabled()) {
+                Objective objective = scoreboard.getObjective("indicator") != null ? scoreboard.getObjective("indicator") : scoreboard.registerNewObjective("indicator", "health");
+                objective.setDisplayName(UHCenario.getInstance().getMessage("scenarios.showhealths.hearts"));
+                objective.setDisplaySlot(DisplaySlot.BELOW_NAME);
+            }
         }
     }
 
     @Override
     public void onDisable() {
         for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
-            if(onlinePlayer.getScoreboard().equals(this.scoreboard))
-                onlinePlayer.setScoreboard(Bukkit.getScoreboardManager().getMainScoreboard());
+            Scoreboard scoreboard = onlinePlayer.getScoreboard();
+            if(this.isEnabled()) {
+                Objective objective = scoreboard.getObjective("indicator") != null ? scoreboard.getObjective("indicator") : null;
+                if(objective != null) {
+                    objective.unregister();
+                }
+            }
         }
     }
 }
