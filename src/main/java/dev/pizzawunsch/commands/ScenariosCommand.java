@@ -1,10 +1,15 @@
 package dev.pizzawunsch.commands;
 
+import com.google.common.collect.Lists;
 import dev.pizzawunsch.UHCenario;
 import dev.pizzawunsch.utils.AbstractCommand;
+import dev.pizzawunsch.utils.inventory.Button;
+import dev.pizzawunsch.utils.item.ItemBuilder;
+import dev.pizzawunsch.utils.scenario.Scenario;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.List;
 
 
 /**
@@ -34,7 +39,15 @@ public class ScenariosCommand extends AbstractCommand {
                 // Opens the admin configuration panel.
                 player.openInventory(UHCenario.getInstance().getInventory("admin"));
             } else {
-
+                // Lists the enabled scenarios to the players.
+                List<Button> buttons = Lists.newArrayList();
+                Scenario.getScenarios().forEach(scenario -> {
+                    if(scenario.isRegistered()) {
+                        if(scenario.isEnabled())
+                            buttons.add(new Button(new ItemBuilder(scenario.getMaterial(), scenario.getSubid()).name(scenario.getName()).nbtTag("plugin", UHCenario.getInstance().getName()).lore(scenario.getLore()).nbtTag("cancelInteract", true).build()));
+                    }
+                });
+                UHCenario.getInstance().open(player, "enabled_scenarios", buttons);
             }
         } else // the console is not a player.
             commandSender.sendMessage(UHCenario.getInstance().getMessage("senderNotPlayer"));

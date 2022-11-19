@@ -85,6 +85,16 @@ public class InventoryClickListener implements Listener {
                                 }
                             });
                         }
+
+                        if(interactKey.equals("enabled_scenarios")) {
+                            Scenario.getScenarios().forEach(scenario -> {
+                                if(scenario.isRegistered()) {
+                                    if(scenario.isEnabled())
+                                        buttons.add(new Button(new ItemBuilder(scenario.getMaterial(), scenario.getSubid()).name(scenario.getName()).nbtTag("plugin", UHCenario.getInstance().getName()).lore(scenario.getLore()).nbtTag("cancelInteract", true).build()));
+                                }
+                            });
+                        }
+
                         if(inventoryKey.equals("scenarios")) {
                             Scenario.getScenarios().forEach(scenario -> {
                                 if(scenario.isRegistered()) {

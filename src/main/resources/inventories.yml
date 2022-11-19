@@ -303,7 +303,106 @@ inventories:
         key: 'placeholder'
         lore:
           - ''
-  # This lists all scenarios that are activeable.
+  # Shows all enabled scenarios.
+  enabled_scenarios:
+    name: "§4UHC§cenario §8┃ §fEnabled"
+    rows: 6
+    listRows: 4
+    paged: true
+    items:
+      46:
+        material: EMPTY_MAP
+        id: 0
+        name: '§8» §cEine Seite zurück'
+        key: 'paged:back'
+        lore:
+          - '§8§m--------------'
+          - '§7Bringt dich eine'
+          - '§7Seite zurück.'
+      47:
+        material: PAPER
+        id: 0
+        name: '§8» §aDie nächste Seite'
+        key: 'paged:next'
+        lore:
+          - '§8§m--------------'
+          - '§7Bringt dich zur'
+          - '§7nächsten Seite.'
+      53:
+        material: BARRIER
+        id: 0
+        name: '§8» §cZurück'
+        key: 'open:admin'
+        lore:
+          - '§8§m--------------'
+          - '§7Bringt dich zurück'
+          - '§7zum Hauptmenü.'
+      36:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      37:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      38:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      39:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      40:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      41:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      42:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      43:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+      44:
+        material: STAINED_GLASS_PANE
+        id: 15
+        name: '§8 '
+        key: 'placeholder'
+        lore:
+          - ''
+
+
+  # This lists all scenarios that are active able.
   scenarios:
     name: "§4UHC§cenario §8┃ §fScenarios"
     rows: 6
