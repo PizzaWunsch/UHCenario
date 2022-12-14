@@ -331,12 +331,11 @@ inventories:
       53:
         material: BARRIER
         id: 0
-        name: '§8» §cZurück'
-        key: 'open:admin'
+        name: '§8» §cSchließen'
+        key: 'close'
         lore:
           - '§8§m--------------'
-          - '§7Bringt dich zurück'
-          - '§7zum Hauptmenü.'
+          - '§7Schließt das Inventar.'
       36:
         material: STAINED_GLASS_PANE
         id: 15
