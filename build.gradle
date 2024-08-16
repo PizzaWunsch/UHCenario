@@ -3,34 +3,40 @@ plugins {
     id 'java'
 }
 
-
-group 'dev.pizzawunsch'
-version '1.0-SNAPSHOT'
+group = 'dev.pizzawunsch'
+version = '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
     mavenLocal()
+    maven {
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+
+        // As of Gradle 5.1, you can limit this to only those
+        // dependencies you expect from it
+        content {
+            includeGroup 'org.bukkit'
+            includeGroup 'org.spigotmc'
+        }
+    }
     maven { url = 'https://oss.sonatype.org/content/repositories/snapshots' }
     maven { url = 'https://oss.sonatype.org/content/repositories/central' }
-    maven { url = 'file://D:/lib/repositories/spigot.jar'}
 
-}
-
-allprojects {
-    repositories {
-        maven { url 'https://jitpack.io' }
-    }
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-    compileOnly('org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT')
-    compileOnly 'org.spigotmc:spigot:1.8.8-R0.1-SNAPSHOT'
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    implementation 'com.github.azbh111:spigot-1.8.8:R'
 
     compileOnly 'org.projectlombok:lombok:1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
     testCompileOnly 'org.projectlombok:lombok:1.18.22'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
 }
+
 
 shadowJar {
     relocate('org.simpleyaml', 'ir.ciph3r.eris.libs')
