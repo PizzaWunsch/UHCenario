@@ -39,9 +39,9 @@ shadowJar {
 
 shadow {
     dependencies {
-        implementation 'me.carleslc.Simple-YAML:Simple-Yaml:1.8'
+        implementation 'me.carleslc.Simple-YAML:Simple-Yaml:1.8.4'
         implementation 'org.reflections:reflections:0.9.9-RC1'
-        implementation group: 'org.yaml', name: 'snakeyaml', version: '1.30'
+        implementation group: 'org.yaml', name: 'snakeyaml', version: '2.0'
         implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.29'
     }
 }

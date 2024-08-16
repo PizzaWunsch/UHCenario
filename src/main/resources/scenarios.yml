@@ -377,3 +377,13 @@ scenarios:
       - '§8§m------------'
       - '§7Feuerschaden ist'
       - '§cdeaktiviert§7!'
+  coldweapons:
+    name: '&cColdWeapons'
+    material: ENCHANTED_BOOK
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Verbrennung 1 und 2 ist'
+      - '§cdeaktiviert§7!'
