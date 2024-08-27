@@ -83,7 +83,7 @@ public class BlockBreakScenario extends Scenario implements Listener {
      */
     private ArrayList<Block> getRelatives(Block block) {
         ArrayList<Block> blocks = new ArrayList<>();
-        for (int radius = 1; radius < 4; radius++) {
+        for (int radius = 1; radius < 5; radius++) {
             byte b1;
             int i;
             BlockFace[] arrayOfBlockFace;

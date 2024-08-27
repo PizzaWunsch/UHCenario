@@ -4,6 +4,7 @@ import dev.pizzawunsch.UHCenario;
 import dev.pizzawunsch.utils.scenario.Executable;
 import dev.pizzawunsch.utils.scenario.Scenario;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -20,7 +21,7 @@ import org.bukkit.scoreboard.Scoreboard;
  * @version 1.0
  * @since 24.10.2022
  */
-public class ShowHealthScenario extends Scenario implements Listener, Executable {
+public class ShowHealthScenario extends Scenario implements Executable {
 
 
     /**
@@ -31,47 +32,32 @@ public class ShowHealthScenario extends Scenario implements Listener, Executable
     }
 
 
-    @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent event) {
-        Player player = event.getPlayer();
-        Scoreboard scoreboard = player.getScoreboard();
 
-        if(this.isEnabled()) {
-            Objective objective = scoreboard.getObjective("indicator") != null ? scoreboard.getObjective("indicator") : scoreboard.registerNewObjective("indicator", "health");
-            objective.setDisplayName(UHCenario.getInstance().getMessage("scenarios.showhealths.hearts"));
-            objective.setDisplaySlot(DisplaySlot.BELOW_NAME);
-            player.setScoreboard(scoreboard);
-        } else {
-            Objective objective = scoreboard.getObjective("indicator") != null ? scoreboard.getObjective("indicator") : null;
-            if(objective != null) {
-                objective.unregister();
+    private void startShowHealth() {
+        String objectiveName = "show_health";
+        Bukkit.getScheduler().runTaskTimer((UHCenario.getInstance()), () -> {
+            for (Player player : Bukkit.getOnlinePlayers()) {
+                Scoreboard scoreboard = player.getScoreboard();
+                Objective healthName = scoreboard.getObjective(objectiveName);
+                if (healthName == null) {
+                    healthName = scoreboard.registerNewObjective(objectiveName, "health");
+                    healthName.setDisplaySlot(DisplaySlot.BELOW_NAME);
+                    healthName.setDisplayName(ChatColor.DARK_RED + "♥");
+                }
+                healthName.setDisplaySlot(DisplaySlot.BELOW_NAME);
+                if (!this.isEnabled())
+                    healthName.unregister();
             }
-            player.setScoreboard(scoreboard);
-            scoreboard.clearSlot(DisplaySlot.BELOW_NAME);
-        }
+        },10L, 10L);
     }
 
     @Override
     public void onEnable() {
-        for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
-            Scoreboard scoreboard = onlinePlayer.getScoreboard();
-            Objective objective = scoreboard.getObjective("indicator") != null ? scoreboard.getObjective("indicator") : scoreboard.registerNewObjective("indicator", "health");
-            objective.setDisplayName(UHCenario.getInstance().getMessage("scenarios.showhealths.hearts"));
-            objective.setDisplaySlot(DisplaySlot.BELOW_NAME);
-            onlinePlayer.setScoreboard(scoreboard);
-        }
+     this.startShowHealth();
     }
 
     @Override
     public void onDisable() {
-        for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
-            Scoreboard scoreboard = onlinePlayer.getScoreboard();
-            Objective objective = scoreboard.getObjective("indicator") != null ? scoreboard.getObjective("indicator") : null;
-            if(objective != null) {
-                objective.unregister();
-            }
-            onlinePlayer.setScoreboard(scoreboard);
-            scoreboard.clearSlot(DisplaySlot.BELOW_NAME);
-        }
+
     }
 }

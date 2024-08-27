@@ -51,11 +51,14 @@ public class Scenario {
         if(enabled) {
             this.votable = false;
             Bukkit.broadcastMessage(UHCenario.getInstance().getMessage("scenarios.enabled").replace("%scenario%", this.getName()));
-            if (this.getClass().isAssignableFrom(Executable.class))
+            System.out.println(this.getClass().isAssignableFrom(Executable.class));
+            if (this instanceof Executable) {
                 ((Executable) this).onEnable();
+                System.out.println("Scenario " + this.key + " executed!");
+            }
         } else {
             Bukkit.broadcastMessage(UHCenario.getInstance().getMessage("scenarios.disabled").replace("%scenario%", this.getName()));
-            if (this.getClass().isAssignableFrom(Executable.class))
+            if (this instanceof Executable)
                 ((Executable) this).onDisable();
         }
     }
