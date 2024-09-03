@@ -236,6 +236,20 @@ public class BlockBreakScenario extends Scenario implements Listener {
                         // set the block to air
                         block.setType(Material.AIR);
                         break;
+                    case GRAVEL:
+                        // drops the item
+                        block.getWorld().dropItem(block.getLocation().clone().add(0.5, 0.5, 0.5),
+                                new ItemBuilder(Material.FLINT).build());
+                        // set the block to air
+                        block.setType(Material.AIR);
+                        break;
+                    case WEB:
+                        // drops the item
+                        block.getWorld().dropItem(block.getLocation().clone().add(0.5, 0.5, 0.5),
+                                new ItemBuilder(Material.STRING).build());
+                        // set the block to air
+                        block.setType(Material.AIR);
+                        break;
                     default:
                         break;
                 }
@@ -368,6 +382,20 @@ public class BlockBreakScenario extends Scenario implements Listener {
                             // drops the item
                             block.getWorld().dropItem(block.getLocation().clone().add(0.5, 0.5, 0.5),
                                     new ItemBuilder(Material.COBBLESTONE).build());
+                            // set the block to air
+                            block.setType(Material.AIR);
+                            break;
+                        case GRAVEL:
+                            // drops the item
+                            block.getWorld().dropItem(block.getLocation().clone().add(0.5, 0.5, 0.5),
+                                    new ItemBuilder(Material.FLINT).build());
+                            // set the block to air
+                            block.setType(Material.AIR);
+                            break;
+                        case WEB:
+                            // drops the item
+                            block.getWorld().dropItem(block.getLocation().clone().add(0.5, 0.5, 0.5),
+                                    new ItemBuilder(Material.STRING).build());
                             // set the block to air
                             block.setType(Material.AIR);
                             break;

@@ -22,6 +22,13 @@ scenarios:
     killed: '%prefix%&7 Du hast nun das Inventar von &e%player%&7.'
   fastgetaway:
     killed: '%prefix%&7 Du hast nun für §e%time% Sekunden §7den §bGeschwindigkeitseffekt§7 bekommen!'
+  noclean:
+    protection_begin: '%prefix%&7 Du bist nun für &f30 Sekunden&7 geschützt!'
+    cant_damage: '%prefix%&7 Du kannst &c%player%&7 kein schaden zufügen, da dieser geschützt ist.'
+    protection_ended_cause_damage: '%prefix%&c Du bist nun nicht mehr geschützt, da du ein anderen Spieler Schaden zugefügt hast!'
+    protection_ended: '%prefix%&c Du bist nun ungeschützt!'
+    protection_timer: '%prefix%&c Du bist noch für &f%seconds% Sekunden&7 geschützt!'
+
 
 voting:
   added: '%prefix%§7 Man kann nun für das Szenario %scenario%&7 abstimmen&7!'

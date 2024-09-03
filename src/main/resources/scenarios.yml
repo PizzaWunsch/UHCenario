@@ -387,3 +387,13 @@ scenarios:
       - '§8§m------------'
       - '§7Verbrennung 1 und 2 ist'
       - '§cdeaktiviert§7!'
+  noclean:
+    name: '&fNoClean'
+    material: IRON_SWORD
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Erhalte nach jedem Kill eine'
+      - '§7Schutzzeit von §c30 Sekunden§7!'
