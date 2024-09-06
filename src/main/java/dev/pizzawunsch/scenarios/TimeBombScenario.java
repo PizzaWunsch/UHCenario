@@ -96,7 +96,7 @@ public class TimeBombScenario extends Scenario implements Listener {
                         event.getDrops().clear();
                         // creates a new explosion to destroy and damage the players
                         location.getWorld().createExplosion(location.getX() + 0.5, location.getY() + 0.5,
-                                location.getZ() + 0.5, 6, true, true);
+                                location.getZ() + 0.5, 4, true, true);
                         // spawns a new lightning
                         location.getWorld().strikeLightning(location);
                         // removes the armor stand
