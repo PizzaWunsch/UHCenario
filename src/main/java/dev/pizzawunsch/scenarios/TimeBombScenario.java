@@ -57,14 +57,19 @@ public class TimeBombScenario extends Scenario implements Listener {
             Block block = location.getBlock();
             // get the down relative of block
             block.getRelative(BlockFace.DOWN);
+
+            List<Block> chestClock = Lists.newArrayList();
+
             // sets the type of the block to a chest
             block.setType(Material.CHEST);
+            chestClock.add(block);
             // the chest of by blocks state
             Chest chest = (Chest) block.getState();
             // get the relative of northern side from block
             block = block.getRelative(BlockFace.NORTH);
             // set the type of the relative block to chest
             block.setType(Material.CHEST);
+            chestClock.add(block);
             // loops all item stacks from the drop list
             for (ItemStack itemStack : drops) {
                 if (itemStack == null || itemStack.getType() == Material.AIR)
@@ -99,6 +104,12 @@ public class TimeBombScenario extends Scenario implements Listener {
                                 location.getZ() + 0.5, 4, true, true);
                         // spawns a new lightning
                         location.getWorld().strikeLightning(location);
+
+
+                        for(Block block1 : chestClock) {
+                            block1.setType(Material.AIR);
+                        }
+
                         // removes the armor stand
                         armorStand.remove();
                         // cancels the task
