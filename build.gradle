@@ -41,6 +41,8 @@ dependencies {
 shadowJar {
     relocate('org.simpleyaml', 'ir.ciph3r.eris.libs')
     relocate('org.yaml', 'ir.ciph3r.eris.libs')
+    relocate('org.reflections', 'dev.pizzawunsch.reflections')
+
 }
 
 shadow {
