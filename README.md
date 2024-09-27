@@ -1,14 +1,10 @@
 # UHCenario 👾
 
-<b>Hier Herunterladen:</b> https://discord.gg/ackqcVypGb
-
 <b>UHCenario</b> ist ein, auf der <b>Spigot</b>-Plattform basierendes, <b>Opensource</b>-Szenarien-Plugin für Spielmodie wie bspw. UHC, ODV und Meetups.
 
 Dieses Plugin lässt sich grundlegend bis auf die letzten Items in jeweiligen Inventaren konfigurieren.
-Somit haben Administatoren die Möglichkeit, das Plugin auf deren Designideen einzurichten und die Szenarien so einzustellen,
+Somit haben die Nutzer/Administatoren die Möglichkeit, das Plugin auf deren Designideen einzurichten und die Szenarien so einzustellen,
 sodass Sie den Spielern den größtmöglichen Spielspaß garantieren können.
-
-**Wichtig:** Bitte beachtet, dass bei der gradle.build <b>immer</b> eine Spigot-Repository hinterlegt ist, welche die CraftBukkit-API mit beinhaltet!
 
 ## Erstellen eigener Szenarien
 
