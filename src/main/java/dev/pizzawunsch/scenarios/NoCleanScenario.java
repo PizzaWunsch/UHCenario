@@ -46,8 +46,6 @@ public class NoCleanScenario  extends Scenario implements Listener, Executable {
                 event.setCancelled(true);
             }
         }
-
-
     }
 
     @EventHandler

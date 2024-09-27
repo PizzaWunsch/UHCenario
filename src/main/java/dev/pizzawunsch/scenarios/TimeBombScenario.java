@@ -3,6 +3,7 @@ package dev.pizzawunsch.scenarios;
 import com.google.common.collect.Lists;
 import dev.pizzawunsch.UHCenario;
 import dev.pizzawunsch.utils.scenario.Scenario;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -104,12 +105,9 @@ public class TimeBombScenario extends Scenario implements Listener {
                                 location.getZ() + 0.5, 4, true, true);
                         // spawns a new lightning
                         location.getWorld().strikeLightning(location);
-
-
                         for(Block block1 : chestClock) {
                             block1.setType(Material.AIR);
                         }
-
                         // removes the armor stand
                         armorStand.remove();
                         // cancels the task
