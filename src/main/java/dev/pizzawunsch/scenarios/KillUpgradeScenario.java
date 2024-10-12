@@ -23,6 +23,10 @@ public class KillUpgradeScenario extends Scenario implements Listener {
 
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
+
+        if(!this.isEnabled())
+            return;
+
         Player killed = event.getEntity();
         Player killer = killed.getKiller();
 
