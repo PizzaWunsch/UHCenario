@@ -28,7 +28,8 @@ scenarios:
     protection_ended_cause_damage: '%prefix%&c Du bist nun nicht mehr geschützt, da du ein anderen Spieler Schaden zugefügt hast!'
     protection_ended: '%prefix%&c Du bist nun ungeschützt!'
     protection_timer: '%prefix%&c Du bist noch für &f%seconds% Sekunden&7 geschützt!'
-
+  killupgrade:
+    upgraded: '%prefix% Ein zufälliges Rückstungsteil wurde verbessert!'
 
 voting:
   added: '%prefix%§7 Man kann nun für das Szenario %scenario%&7 abstimmen&7!'

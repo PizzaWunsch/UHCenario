@@ -397,3 +397,13 @@ scenarios:
       - '§8§m------------'
       - '§7Erhalte nach jedem Kill eine'
       - '§7Schutzzeit von §c30 Sekunden§7!'
+  killupgrade:
+    name: '&6KillUpgrade'
+    material: LEATHER_CHESTPLATE
+    id: 0
+    enabled: false
+    votable: false
+    lore:
+      - '§8§m------------'
+      - '§7Erhalte nach jedem Kill eine'
+      - '§7verbesserte Rüstung§7!'

@@ -32,7 +32,7 @@ public class RodLessScenario extends Scenario implements Listener {
      * @param event the corresponding craft item event
      */
     @EventHandler
-    public void onCraftBow(CraftItemEvent event) {
+    public void onCraftRod(CraftItemEvent event) {
         // if this scenario is enabled
         if (this.isEnabled()) {
             // if result of the recipe is a rod

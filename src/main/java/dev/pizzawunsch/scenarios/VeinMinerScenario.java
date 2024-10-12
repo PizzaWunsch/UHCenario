@@ -28,7 +28,6 @@ public class VeinMinerScenario extends Scenario implements Listener {
     }
 
     private void mineVein(Block block, Set<Block> minedBlocks) {
-
         if (minedBlocks.contains(block)) return;
         minedBlocks.add(block);
         if (isOre(block.getType())) {

@@ -61,8 +61,7 @@ public class GoldenHeadsScenario extends Scenario implements Listener {
                 // if interact key is the key for the golden heads
                 if (editor.getNBTTagCompound().getString("interactKey").equals("goldenhead")) {
                     // adds potion effects to the player
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 20 * 120, 1));
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 20 * 20, 2));
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 20 * 120, 2));
                 }
             }
         }
