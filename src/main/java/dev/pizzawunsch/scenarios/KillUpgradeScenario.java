@@ -107,44 +107,65 @@ public class KillUpgradeScenario extends Scenario implements Listener {
     }
 
     private Material upgradeLeather(Material type) {
-        return switch (type) {
-            case LEATHER_CHESTPLATE -> Material.GOLD_CHESTPLATE;
-            case LEATHER_LEGGINGS -> Material.GOLD_LEGGINGS;
-            case LEATHER_HELMET -> Material.GOLD_HELMET;
-            case LEATHER_BOOTS -> Material.GOLD_BOOTS;
-            default -> type;
-        };
+        switch (type) {
+            case LEATHER_CHESTPLATE:
+                return Material.GOLD_CHESTPLATE;
+            case LEATHER_LEGGINGS:
+                return Material.GOLD_LEGGINGS;
+            case LEATHER_HELMET:
+                return Material.GOLD_HELMET;
+            case LEATHER_BOOTS:
+                return Material.GOLD_BOOTS;
+            default:
+                return type;
+        }
     }
 
     private Material upgradeGold(Material type) {
-        return switch (type) {
-            case GOLD_CHESTPLATE -> Material.CHAINMAIL_CHESTPLATE;
-            case GOLD_LEGGINGS -> Material.CHAINMAIL_LEGGINGS;
-            case GOLD_HELMET -> Material.CHAINMAIL_HELMET;
-            case GOLD_BOOTS -> Material.CHAINMAIL_BOOTS;
-            default -> type;
-        };
+        switch (type) {
+            case GOLD_CHESTPLATE:
+                return Material.CHAINMAIL_CHESTPLATE;
+            case GOLD_LEGGINGS:
+                return Material.CHAINMAIL_LEGGINGS;
+            case GOLD_HELMET:
+                return Material.CHAINMAIL_HELMET;
+            case GOLD_BOOTS:
+                return Material.CHAINMAIL_BOOTS;
+            default:
+                return type;
+        }
     }
 
     private Material upgradeChainmail(Material type) {
-        return switch (type) {
-            case CHAINMAIL_CHESTPLATE -> Material.IRON_CHESTPLATE;
-            case CHAINMAIL_LEGGINGS -> Material.IRON_LEGGINGS;
-            case CHAINMAIL_HELMET -> Material.IRON_HELMET;
-            case CHAINMAIL_BOOTS -> Material.IRON_BOOTS;
-            default -> type;
-        };
+        switch (type) {
+            case CHAINMAIL_CHESTPLATE:
+                return Material.IRON_CHESTPLATE;
+            case CHAINMAIL_LEGGINGS:
+                return Material.IRON_LEGGINGS;
+            case CHAINMAIL_HELMET:
+                return Material.IRON_HELMET;
+            case CHAINMAIL_BOOTS:
+                return Material.IRON_BOOTS;
+            default:
+                return type;
+        }
     }
 
     private Material upgradeIron(Material type) {
-        return switch (type) {
-            case IRON_CHESTPLATE -> Material.DIAMOND_CHESTPLATE;
-            case IRON_LEGGINGS -> Material.DIAMOND_LEGGINGS;
-            case IRON_HELMET -> Material.DIAMOND_HELMET;
-            case IRON_BOOTS -> Material.DIAMOND_BOOTS;
-            default -> type;
-        };
+        switch (type) {
+            case IRON_CHESTPLATE:
+                return Material.DIAMOND_CHESTPLATE;
+            case IRON_LEGGINGS:
+                return Material.DIAMOND_LEGGINGS;
+            case IRON_HELMET:
+                return Material.DIAMOND_HELMET;
+            case IRON_BOOTS:
+                return Material.DIAMOND_BOOTS;
+            default:
+                return type;
+        }
     }
+
 
     private ItemStack upgradeEnchantment(ItemStack item) {
         if (item.containsEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL)) {

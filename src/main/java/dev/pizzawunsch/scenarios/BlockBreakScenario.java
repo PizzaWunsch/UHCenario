@@ -127,7 +127,7 @@ public class BlockBreakScenario extends Scenario implements Listener {
                                 block.getWorld().dropItem(block.getLocation().clone().add(0.5, 0.5, 0.5),
                                         new ItemBuilder(Material.DIAMOND).amount(multiplicator).build());
                                 block.getWorld().spawn(block.getLocation().clone().add(0.5, 0.5, 0.5), ExperienceOrb.class)
-                                        .setExperience(7);
+                                        .setExperience(7*2);
                             }
                         }
                         // set the block to air
@@ -140,7 +140,7 @@ public class BlockBreakScenario extends Scenario implements Listener {
                             block.getWorld().dropItem(block.getLocation().clone().add(0.5, 0.5, 0.5),
                                     new ItemBuilder(Material.EMERALD).amount(multiplicator).build());
                             block.getWorld().spawn(block.getLocation().clone().add(0.5, 0.5, 0.5), ExperienceOrb.class)
-                                    .setExperience(9);
+                                    .setExperience(9*2);
                         }
                         // set the block to air
                         block.setType(Material.AIR);
@@ -152,7 +152,7 @@ public class BlockBreakScenario extends Scenario implements Listener {
                             block.getWorld().dropItem(block.getLocation().clone().add(0.5, 0.5, 0.5),
                                     new ItemBuilder(Material.REDSTONE).amount(4 * multiplicator).build());
                             block.getWorld().spawn(block.getLocation().clone().add(0.5, 0.5, 0.5), ExperienceOrb.class)
-                                    .setExperience(4);
+                                    .setExperience(4*2);
                         }
                         // set the block to air
                         block.setType(Material.AIR);
@@ -165,7 +165,7 @@ public class BlockBreakScenario extends Scenario implements Listener {
                             block.getWorld().dropItem(block.getLocation().clone().add(0.5, 0.5, 0.5),
                                     new ItemBuilder(Material.INK_SACK, (byte) 4).amount(4 * multiplicator).build());
                             block.getWorld().spawn(block.getLocation().clone().add(0.5, 0.5, 0.5), ExperienceOrb.class)
-                                    .setExperience(4);
+                                    .setExperience(4*2);
                         }
                         // set the block to air
                         block.setType(Material.AIR);
@@ -179,7 +179,7 @@ public class BlockBreakScenario extends Scenario implements Listener {
                                 block.getWorld().dropItem(block.getLocation().clone().add(0.5, 0.5, 0.5),
                                         new ItemBuilder(Material.GOLD_INGOT).amount(multiplicator).build());
                                 block.getWorld().spawn(block.getLocation().clone().add(0.5, 0.5, 0.5), ExperienceOrb.class)
-                                        .setExperience(3);
+                                        .setExperience(3*2);
                             }
                         }
                         // set the block to air
@@ -194,7 +194,7 @@ public class BlockBreakScenario extends Scenario implements Listener {
                             block.getWorld().dropItem(block.getLocation().clone().add(0.5, 0.5, 0.5),
                                     new ItemBuilder(Material.IRON_INGOT).amount(multiplicator).build());
                             block.getWorld().spawn(block.getLocation().clone().add(0.5, 0.5, 0.5), ExperienceOrb.class)
-                                    .setExperience(3);
+                                    .setExperience(3*2);
                         }
                         // set the block to air
                         block.setType(Material.AIR);
@@ -209,7 +209,7 @@ public class BlockBreakScenario extends Scenario implements Listener {
                             block.getWorld().dropItem(block.getLocation().clone().add(0.5, 0.5, 0.5),
                                     new ItemBuilder(Material.COAL).amount(multiplicator).build());
                             block.getWorld().spawn(block.getLocation().clone().add(0.5, 0.5, 0.5), ExperienceOrb.class)
-                                    .setExperience(2);
+                                    .setExperience(2*2);
                         }
                         // set the block to air
                         block.setType(Material.AIR);
@@ -224,7 +224,7 @@ public class BlockBreakScenario extends Scenario implements Listener {
                             block.getWorld().dropItem(block.getLocation().clone().add(0.5, 0.5, 0.5),
                                     new ItemBuilder(Material.QUARTZ).amount(multiplicator).build());
                             block.getWorld().spawn(block.getLocation().clone().add(0.5, 0.5, 0.5), ExperienceOrb.class)
-                                    .setExperience(5);
+                                    .setExperience(5*2);
                         }
                         // set the block to air
                         block.setType(Material.AIR);
@@ -275,7 +275,7 @@ public class BlockBreakScenario extends Scenario implements Listener {
                                             new ItemBuilder(Material.DIAMOND).amount(multiplicator).build());
                                     block.getWorld()
                                             .spawn(block.getLocation().clone().add(0.5, 0.5, 0.5), ExperienceOrb.class)
-                                            .setExperience(7);
+                                            .setExperience(7*2);
                                 }
                             }
                             // set the block to air
@@ -288,7 +288,7 @@ public class BlockBreakScenario extends Scenario implements Listener {
                                 block.getWorld().dropItem(block.getLocation().clone().add(0.5, 0.5, 0.5),
                                         new ItemBuilder(Material.EMERALD).amount(multiplicator).build());
                                 block.getWorld().spawn(block.getLocation().clone().add(0.5, 0.5, 0.5), ExperienceOrb.class)
-                                        .setExperience(9);
+                                        .setExperience(9*2);
                             }
                             // set the block to air
                             block.setType(Material.AIR);
@@ -300,7 +300,7 @@ public class BlockBreakScenario extends Scenario implements Listener {
                                 block.getWorld().dropItem(block.getLocation().clone().add(0.5, 0.5, 0.5),
                                         new ItemBuilder(Material.REDSTONE).amount(4 * multiplicator).build());
                                 block.getWorld().spawn(block.getLocation().clone().add(0.5, 0.5, 0.5), ExperienceOrb.class)
-                                        .setExperience(4);
+                                        .setExperience(4*2);
                             }
                             // set the block to air
                             block.setType(Material.AIR);
@@ -313,7 +313,7 @@ public class BlockBreakScenario extends Scenario implements Listener {
                                 block.getWorld().dropItem(block.getLocation().clone().add(0.5, 0.5, 0.5),
                                         new ItemBuilder(Material.INK_SACK, (byte) 4).amount(4 * multiplicator).build());
                                 block.getWorld().spawn(block.getLocation().clone().add(0.5, 0.5, 0.5), ExperienceOrb.class)
-                                        .setExperience(4);
+                                        .setExperience(4*2);
                             }
                             // set the block to air
                             block.setType(Material.AIR);
@@ -328,7 +328,7 @@ public class BlockBreakScenario extends Scenario implements Listener {
                                             new ItemBuilder(Material.GOLD_ORE).amount(multiplicator).build());
                                     block.getWorld()
                                             .spawn(block.getLocation().clone().add(0.5, 0.5, 0.5), ExperienceOrb.class)
-                                            .setExperience(3);
+                                            .setExperience(3*2);
                                 }
                             }
                             // set the block to air
@@ -343,7 +343,7 @@ public class BlockBreakScenario extends Scenario implements Listener {
                                 block.getWorld().dropItem(block.getLocation().clone().add(0.5, 0.5, 0.5),
                                         new ItemBuilder(Material.IRON_ORE).amount(multiplicator).build());
                                 block.getWorld().spawn(block.getLocation().clone().add(0.5, 0.5, 0.5), ExperienceOrb.class)
-                                        .setExperience(3);
+                                        .setExperience(3*2);
                             }
                             // set the block to air
                             block.setType(Material.AIR);
@@ -358,7 +358,7 @@ public class BlockBreakScenario extends Scenario implements Listener {
                                 block.getWorld().dropItem(block.getLocation().clone().add(0.5, 0.5, 0.5),
                                         new ItemBuilder(Material.COAL).amount(multiplicator).build());
                                 block.getWorld().spawn(block.getLocation().clone().add(0.5, 0.5, 0.5), ExperienceOrb.class)
-                                        .setExperience(2);
+                                        .setExperience(2*2);
                             }
                             // set the block to air
                             block.setType(Material.AIR);
@@ -373,7 +373,7 @@ public class BlockBreakScenario extends Scenario implements Listener {
                                 block.getWorld().dropItem(block.getLocation().clone().add(0.5, 0.5, 0.5),
                                         new ItemBuilder(Material.QUARTZ).amount(multiplicator).build());
                                 block.getWorld().spawn(block.getLocation().clone().add(0.5, 0.5, 0.5), ExperienceOrb.class)
-                                        .setExperience(5);
+                                        .setExperience(5*2);
                             }
                             // set the block to air
                             block.setType(Material.AIR);
