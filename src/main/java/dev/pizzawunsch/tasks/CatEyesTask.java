@@ -39,7 +39,7 @@ public class CatEyesTask extends Task{
         for (Player player : Bukkit.getOnlinePlayers()) {
             player.removePotionEffect(PotionEffectType.NIGHT_VISION);
             // adds to every player whos online the night vision effect
-            player.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 100, 1));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, Integer.MAX_VALUE, 1));
         }
     }
 }
