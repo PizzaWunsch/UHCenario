@@ -47,7 +47,7 @@ public class KillUpgradeScenario extends Scenario implements Listener {
         int index = random.nextInt(armor.size());
         ItemStack item = armor.get(index);
 
-        ItemStack upgradedItem = getNextArmor(item);
+        ItemStack upgradedItem = getNextArmor(player, item, index);
 
         switch (index) {
             case 0:
@@ -65,9 +65,19 @@ public class KillUpgradeScenario extends Scenario implements Listener {
         }
     }
 
-    private ItemStack getNextArmor(ItemStack item) {
+    private ItemStack getNextArmor(Player player, ItemStack item,int  i) {
         if (item == null || item.getType() == Material.AIR) {
-            return new ItemStack(Material.LEATHER_CHESTPLATE);
+            switch (i) {
+                case 0:
+                    return new ItemStack(Material.LEATHER_HELMET);
+                case 1:
+                    return new ItemStack(Material.LEATHER_CHESTPLATE);
+                case 2:
+                    return new ItemStack(Material.LEATHER_LEGGINGS);
+                case 3:
+                    return new ItemStack(Material.LEATHER_BOOTS);
+            }
+
         }
 
         Material nextMaterial = null;
@@ -100,7 +110,7 @@ public class KillUpgradeScenario extends Scenario implements Listener {
             case DIAMOND_LEGGINGS:
             case DIAMOND_HELMET:
             case DIAMOND_BOOTS:
-                return upgradeEnchantment(item);
+                return upgradeEnchantment(player, item);
         }
 
         return (nextMaterial != null) ? new ItemStack(nextMaterial) : item;
@@ -167,11 +177,21 @@ public class KillUpgradeScenario extends Scenario implements Listener {
     }
 
 
-    private ItemStack upgradeEnchantment(ItemStack item) {
+    private ItemStack upgradeEnchantment(Player player, ItemStack item) {
         if (item.containsEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL)) {
             int currentLevel = item.getEnchantmentLevel(Enchantment.PROTECTION_ENVIRONMENTAL);
             if (currentLevel < 4) {
                 item.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, currentLevel + 1);
+            } else {
+                int check = 0;
+                for (ItemStack armorContent : player.getInventory().getArmorContents()) {
+                    if(armorContent.getEnchantments().containsKey(Enchantment.PROTECTION_ENVIRONMENTAL))
+                        if(armorContent.getEnchantmentLevel(Enchantment.PROTECTION_ENVIRONMENTAL) ==4)
+                            check++;
+                }
+                System.out.println(check);
+                if(check < 4)
+                    upgradeRandomArmorPiece(player);
             }
         } else {
             item.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
