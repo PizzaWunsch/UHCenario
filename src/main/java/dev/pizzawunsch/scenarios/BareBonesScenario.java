@@ -31,6 +31,9 @@ public class BareBonesScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onDeath(PlayerDeathEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getEntity().getWorld().getName())) {
+            return;
+        }
         // if scenario is enabled
         if (this.isEnabled()) {
             // adds to players drops 3 diamonds

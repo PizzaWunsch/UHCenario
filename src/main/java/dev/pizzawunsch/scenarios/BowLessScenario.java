@@ -1,5 +1,6 @@
 package dev.pizzawunsch.scenarios;
 
+import dev.pizzawunsch.UHCenario;
 import dev.pizzawunsch.utils.scenario.Scenario;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -50,6 +51,9 @@ public class BowLessScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onEntityDeath(EntityDeathEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getEntity().getWorld().getName())) {
+            return;
+        }
         // if this scenario is enabled
         if (this.isEnabled()) {
             // the entity their dying
@@ -69,12 +73,16 @@ public class BowLessScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onDamageWithBow(EntityDamageByEntityEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getEntity().getWorld().getName())) {
+            return;
+        }
         // if this scenario is enabled
         if (this.isEnabled()) {
             // if damaged entity is a player
             if (event.getEntity() instanceof Player) {
                 // the player
                 Player player = (Player) event.getEntity();
+
                 // if damager is a projectile
                 if (event.getDamager() instanceof Projectile) {
                     // the projectile

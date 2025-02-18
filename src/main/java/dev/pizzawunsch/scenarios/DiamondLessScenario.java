@@ -1,5 +1,6 @@
 package dev.pizzawunsch.scenarios;
 
+import dev.pizzawunsch.UHCenario;
 import dev.pizzawunsch.utils.scenario.Scenario;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -34,6 +35,10 @@ public class DiamondLessScenario extends Scenario implements Listener {
      */
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onBreakBlock(BlockBreakEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getPlayer().getWorld().getName())) {
+            return;
+        }
+
         // if scenario is already enabled
         if (this.isEnabled()) {
             // the player who breaked the block

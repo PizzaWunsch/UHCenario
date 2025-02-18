@@ -1,5 +1,6 @@
 package dev.pizzawunsch.scenarios;
 
+import dev.pizzawunsch.UHCenario;
 import dev.pizzawunsch.utils.scenario.Scenario;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -22,6 +23,9 @@ public class VeinMinerScenario extends Scenario implements Listener {
 
     @EventHandler
     public void onBlockBreak(BlockBreakEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getPlayer().getWorld().getName())) {
+            return;
+        }
         if (!this.isEnabled())
             return;
         mineVein(event.getBlock(), new HashSet<>());

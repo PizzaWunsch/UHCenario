@@ -1,5 +1,6 @@
 package dev.pizzawunsch.scenarios;
 
+import dev.pizzawunsch.UHCenario;
 import dev.pizzawunsch.utils.scenario.Scenario;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -31,6 +32,7 @@ public class NoEnchantScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onCraft(CraftItemEvent event) {
+
         // if scenario is enabled
         if (this.isEnabled())
             // if recipe is a enchantment table or a anvil
@@ -47,6 +49,9 @@ public class NoEnchantScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onEnchant(EnchantItemEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getEnchanter().getWorld().getName())) {
+            return;
+        }
         // if scenario is enabled
         if (this.isEnabled())
             // cancels using the enchantment table

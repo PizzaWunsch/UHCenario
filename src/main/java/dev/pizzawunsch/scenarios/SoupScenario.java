@@ -1,5 +1,6 @@
 package dev.pizzawunsch.scenarios;
 
+import dev.pizzawunsch.UHCenario;
 import dev.pizzawunsch.utils.scenario.Scenario;
 import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
@@ -30,6 +31,9 @@ public class SoupScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onInteract(PlayerInteractEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getPlayer().getWorld().getName())) {
+            return;
+        }
         // if scenario is enabled
         if (this.isEnabled()) {
             // the player who interacts with an item

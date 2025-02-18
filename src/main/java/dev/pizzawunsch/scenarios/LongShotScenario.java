@@ -1,5 +1,6 @@
 package dev.pizzawunsch.scenarios;
 
+import dev.pizzawunsch.UHCenario;
 import dev.pizzawunsch.utils.scenario.Scenario;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -30,6 +31,10 @@ public class LongShotScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onEntityDamage(EntityDamageByEntityEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getEntity().getWorld().getName())) {
+            return;
+        }
+
         // if scenario is enabled
         if (this.isEnabled()) {
             // if damaged and damager is a player

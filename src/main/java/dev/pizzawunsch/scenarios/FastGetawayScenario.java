@@ -37,6 +37,11 @@ public class FastGetawayScenario extends Scenario implements Listener {
         if (this.isEnabled()) {
             // the dead player
             final Player player = event.getEntity();
+
+            if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getEntity().getWorld().getName())) {
+                return;
+            }
+
             // if the player got killed by another player
             if (player.getKiller() != null) {
                 // the player's killer

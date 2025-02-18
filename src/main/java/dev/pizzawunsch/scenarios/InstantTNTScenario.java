@@ -1,5 +1,6 @@
 package dev.pizzawunsch.scenarios;
 
+import dev.pizzawunsch.UHCenario;
 import dev.pizzawunsch.utils.item.ItemBuilder;
 import dev.pizzawunsch.utils.scenario.Scenario;
 import org.bukkit.Material;
@@ -35,9 +36,16 @@ public class InstantTNTScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onInstantTntKill(PlayerDeathEvent event) {
+
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getEntity().getWorld().getName())) {
+            return;
+        }
+
         // if the scenario is active
         if (this.isEnabled()) {
             final Player player = event.getEntity();
+
+
             // if the player got killed by another player
             if (player.getKiller() != null) {
                 // the player's killer
@@ -55,6 +63,10 @@ public class InstantTNTScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onTntPlace(BlockPlaceEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getPlayer().getWorld().getName())) {
+            return;
+        }
+
         // if the scenario is active
         if (this.isEnabled()) {
             // if the placed block is a tnt

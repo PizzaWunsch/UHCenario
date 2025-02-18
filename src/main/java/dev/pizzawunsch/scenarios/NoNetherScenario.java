@@ -1,5 +1,6 @@
 package dev.pizzawunsch.scenarios;
 
+import dev.pizzawunsch.UHCenario;
 import dev.pizzawunsch.utils.scenario.Scenario;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -29,6 +30,7 @@ public class NoNetherScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onPortalCreate(PortalCreateEvent event) {
+
         // if the scenario is enabled
         if (this.isEnabled())
             // cancels creating a portal
@@ -42,6 +44,9 @@ public class NoNetherScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onPortalEnter(PlayerPortalEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getPlayer().getWorld().getName())) {
+            return;
+        }
         // if the scenario is enabled
         if (this.isEnabled())
             // cancels entering a portal

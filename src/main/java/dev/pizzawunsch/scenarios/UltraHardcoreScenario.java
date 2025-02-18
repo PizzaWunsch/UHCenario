@@ -1,5 +1,6 @@
 package dev.pizzawunsch.scenarios;
 
+import dev.pizzawunsch.UHCenario;
 import dev.pizzawunsch.utils.scenario.Scenario;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -28,6 +29,9 @@ public class UltraHardcoreScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onRegainHealth(EntityRegainHealthEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getEntity().getWorld().getName())) {
+            return;
+        }
         // if scenario is enabled
         if (this.isEnabled()) {
             // if regain reason magic and magic regen and regen

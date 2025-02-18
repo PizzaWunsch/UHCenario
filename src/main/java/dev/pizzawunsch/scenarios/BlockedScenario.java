@@ -2,6 +2,7 @@ package dev.pizzawunsch.scenarios;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import dev.pizzawunsch.UHCenario;
 import dev.pizzawunsch.utils.scenario.Executable;
 import dev.pizzawunsch.utils.scenario.Scenario;
 import org.bukkit.block.Block;
@@ -51,6 +52,11 @@ public class BlockedScenario extends Scenario implements Listener, Executable {
      */
     @EventHandler
     public void onBreakBlock(BlockBreakEvent event) {
+
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getPlayer().getWorld().getName())) {
+            return;
+        }
+
         // the player who placed a block
         Player player = event.getPlayer();
         // the block that got placed

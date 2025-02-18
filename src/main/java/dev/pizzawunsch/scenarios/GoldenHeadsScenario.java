@@ -35,6 +35,11 @@ public class GoldenHeadsScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onDeath(PlayerDeathEvent event) {
+
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getEntity().getWorld().getName())) {
+            return;
+        }
+
         // if scenario is enabled
         if (this.isEnabled()) {
             // adds to players drops a golden head and let them drop.
@@ -50,6 +55,11 @@ public class GoldenHeadsScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onConsume(PlayerItemConsumeEvent event) {
+
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getPlayer().getWorld().getName())) {
+            return;
+        }
+
         // if scenario is enabled
         if (this.isEnabled()) {
             // the player who consume a item

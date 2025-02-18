@@ -37,6 +37,11 @@ public class FireLessScenario extends Scenario implements Listener {
         if (this.isEnabled()) {
             // the player who wants to enchant a item
             Player player = event.getEnchanter();
+
+            if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(player.getWorld().getName())) {
+                return;
+            }
+
             // if enchants to add contains key of the fire aspect enchantment
             if (event.getEnchantsToAdd().containsKey(Enchantment.FIRE_ASPECT)
                     || event.getEnchantsToAdd().containsKey(Enchantment.ARROW_FIRE)) {
@@ -54,6 +59,9 @@ public class FireLessScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onFire(EntityDamageEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getEntity().getWorld().getName())) {
+            return;
+        }
         // if scenario is enabled
         if (this.isEnabled()) {
             // if damaged entity is a player

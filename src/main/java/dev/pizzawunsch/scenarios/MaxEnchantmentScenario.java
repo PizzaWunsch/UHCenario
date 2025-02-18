@@ -1,6 +1,7 @@
 package dev.pizzawunsch.scenarios;
 
 import com.google.common.collect.Lists;
+import dev.pizzawunsch.UHCenario;
 import dev.pizzawunsch.utils.scenario.Scenario;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -35,6 +36,10 @@ public class MaxEnchantmentScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onEnchant(PrepareItemEnchantEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getEnchanter().getWorld().getName())) {
+            return;
+        }
+
         // if scenario is enabled
         if (this.isEnabled()) {
             // removes all old enchantment and add them with max level
@@ -56,6 +61,11 @@ public class MaxEnchantmentScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
+
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getWhoClicked().getWorld().getName())) {
+            return;
+        }
+
         // if scenario is enabled
         if (this.isEnabled()) {
             // if clicked inventory is not null

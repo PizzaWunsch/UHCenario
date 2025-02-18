@@ -24,6 +24,10 @@ public class KillUpgradeScenario extends Scenario implements Listener {
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
 
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getEntity().getWorld().getName())) {
+            return;
+        }
+
         if(!this.isEnabled())
             return;
 

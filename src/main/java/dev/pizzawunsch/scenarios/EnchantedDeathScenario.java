@@ -1,5 +1,6 @@
 package dev.pizzawunsch.scenarios;
 
+import dev.pizzawunsch.UHCenario;
 import dev.pizzawunsch.utils.scenario.Scenario;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -31,6 +32,9 @@ public class EnchantedDeathScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onDeath(PlayerDeathEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getEntity().getWorld().getName())) {
+            return;
+        }
         // if scenario is enabled
         if (this.isEnabled()) {
             event.getEntity().getLocation().getWorld().dropItem(event.getEntity().getLocation(),

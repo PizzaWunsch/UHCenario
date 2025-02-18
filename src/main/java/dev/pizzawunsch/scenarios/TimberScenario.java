@@ -1,5 +1,6 @@
 package dev.pizzawunsch.scenarios;
 
+import dev.pizzawunsch.UHCenario;
 import dev.pizzawunsch.utils.scenario.Scenario;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -32,6 +33,9 @@ public class TimberScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onTimber(BlockBreakEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getPlayer().getWorld().getName())) {
+            return;
+        }
         // if the scenario is active
         if (this.isEnabled()) {
             // the block breaked

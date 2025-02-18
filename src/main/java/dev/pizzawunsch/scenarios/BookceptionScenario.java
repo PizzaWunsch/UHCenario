@@ -31,6 +31,10 @@ public class BookceptionScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getEntity().getWorld().getName())) {
+            return;
+        }
+
         // if scenario is enabled
         if (this.isEnabled()) {
             // gets a random enchantment to drop

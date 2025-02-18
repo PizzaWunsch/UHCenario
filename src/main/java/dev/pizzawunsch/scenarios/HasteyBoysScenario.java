@@ -1,5 +1,6 @@
 package dev.pizzawunsch.scenarios;
 
+import dev.pizzawunsch.UHCenario;
 import dev.pizzawunsch.utils.item.ItemBuilder;
 import dev.pizzawunsch.utils.scenario.Scenario;
 import org.bukkit.Material;
@@ -42,6 +43,7 @@ public class HasteyBoysScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onCraft(CraftItemEvent event) {
+
         // if scenario is enabled
         if (this.isEnabled()) {
             // the result of revipe

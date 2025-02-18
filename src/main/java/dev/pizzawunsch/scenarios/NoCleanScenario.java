@@ -27,6 +27,10 @@ public class NoCleanScenario  extends Scenario implements Listener, Executable {
 
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
+
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getEntity().getWorld().getName())) {
+            return;
+        }
         if(!this.isEnabled())
             return;
         Player killer = event.getEntity().getKiller();
@@ -38,6 +42,10 @@ public class NoCleanScenario  extends Scenario implements Listener, Executable {
 
     @EventHandler
     public void onDamage(EntityDamageEvent event) {
+
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getEntity().getWorld().getName())) {
+            return;
+        }
         if(!this.isEnabled())
             return;
         if(event.getEntity() instanceof Player) {
@@ -50,6 +58,9 @@ public class NoCleanScenario  extends Scenario implements Listener, Executable {
 
     @EventHandler
     public void onPlayerDamage(EntityDamageByEntityEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getEntity().getWorld().getName())) {
+            return;
+        }
         if(!this.isEnabled())
             return;
         if(event.getDamager() instanceof Player) {

@@ -32,6 +32,10 @@ public class AbsorptionLessScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onPlayerConsume(PlayerItemConsumeEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getPlayer().getWorld().getName())) {
+            return;
+        }
+
         // if this scenario is enabled
         if (this.isEnabled()) {
             // the player who consume a item

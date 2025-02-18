@@ -1,5 +1,6 @@
 package dev.pizzawunsch.scenarios;
 
+import dev.pizzawunsch.UHCenario;
 import dev.pizzawunsch.utils.scenario.Scenario;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -27,6 +28,9 @@ public class NoHungerScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onHunger(FoodLevelChangeEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getEntity().getWorld().getName())) {
+            return;
+        }
         // if the nofall scenario is enabled.
         if(this.isEnabled()) {
             if(event.getEntity() instanceof Player) {

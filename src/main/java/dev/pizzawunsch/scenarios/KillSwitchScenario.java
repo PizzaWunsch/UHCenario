@@ -28,6 +28,10 @@ public class KillSwitchScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onDeath(PlayerDeathEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getEntity().getWorld().getName())) {
+            return;
+        }
+
         if (this.isEnabled()) {
             if (event.getEntity().getKiller() != null) {
                 event.getDrops().clear();

@@ -6,3 +6,6 @@ scenarios:
     diamonds: 5
   fastgetaway:
     time: 30
+
+# where the scenarios won't work
+disabled_worlds: ['world']

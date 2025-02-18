@@ -1,5 +1,6 @@
 package dev.pizzawunsch.scenarios;
 
+import dev.pizzawunsch.UHCenario;
 import dev.pizzawunsch.utils.scenario.Scenario;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -33,6 +34,7 @@ public class RodLessScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onCraftRod(CraftItemEvent event) {
+
         // if this scenario is enabled
         if (this.isEnabled()) {
             // if result of the recipe is a rod
@@ -50,6 +52,9 @@ public class RodLessScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onDamageWithRod(EntityDamageByEntityEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getEntity().getWorld().getName())) {
+            return;
+        }
         // if this scenario is enabled
         if (this.isEnabled()) {
             // if damaged entity is a player

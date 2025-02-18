@@ -50,6 +50,9 @@ public class OldEnchantmentsScenario extends Scenario implements Listener {
      */
     @EventHandler(priority = EventPriority.MONITOR)
     public void hideEnchants(PrepareItemEnchantEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getEnchanter().getWorld().getName())) {
+            return;
+        }
         if (!this.isEnabled())
             return;
         CraftInventoryView view = (CraftInventoryView) event.getView();
@@ -69,6 +72,9 @@ public class OldEnchantmentsScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void openEnchantmentTable(InventoryOpenEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getPlayer().getWorld().getName())) {
+            return;
+        }
         if (this.isEnabled()) {
             try {
                 if (event.getInventory() instanceof EnchantingInventory) {
@@ -90,6 +96,9 @@ public class OldEnchantmentsScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onClick(InventoryClickEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getWhoClicked().getWorld().getName())) {
+            return;
+        }
         if (this.isEnabled()) {
             Inventory inventory = event.getInventory();
             ItemStack itemStack = event.getCurrentItem();
@@ -103,6 +112,9 @@ public class OldEnchantmentsScenario extends Scenario implements Listener {
 
     @EventHandler
     public void closeInventoryEvent(InventoryCloseEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getPlayer().getWorld().getName())) {
+            return;
+        }
         if (this.isEnabled()) {
             try {
                 if (event.getInventory() instanceof EnchantingInventory)
@@ -114,6 +126,9 @@ public class OldEnchantmentsScenario extends Scenario implements Listener {
 
     @EventHandler
     public void enchantItemEvent(EnchantItemEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getEnchanter().getWorld().getName())) {
+            return;
+        }
         if (this.isEnabled()) {
             try {
                 Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) UHCenario.getInstance(), () -> {

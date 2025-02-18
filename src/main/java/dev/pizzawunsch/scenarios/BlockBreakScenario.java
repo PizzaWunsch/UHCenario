@@ -44,6 +44,10 @@ public class BlockBreakScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onBreakBlock(BlockBreakEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getPlayer().getWorld().getName())) {
+            return;
+        }
+
         // the block that got placed
         Block block = event.getBlock();
         // the player who breaked the block

@@ -1,5 +1,6 @@
 package dev.pizzawunsch.scenarios;
 
+import dev.pizzawunsch.UHCenario;
 import dev.pizzawunsch.utils.scenario.Scenario;
 import org.bukkit.Location;
 import org.bukkit.Sound;
@@ -33,6 +34,11 @@ public class BowSwitchScenario extends Scenario implements Listener {
             if (event.getEntityType() == EntityType.ARROW) {
                 try {
                     final Player shooter = (Player) event.getEntity().getShooter();
+
+                    if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(shooter.getWorld().getName())) {
+                        return;
+                    }
+
                     for (Entity entities : event.getEntity().getNearbyEntities(2, 2, 2)) {
                         // checking nearby players that got hit by the arrow
                         if (entities instanceof Player) {

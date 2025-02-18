@@ -1,5 +1,6 @@
 package dev.pizzawunsch.scenarios;
 
+import dev.pizzawunsch.UHCenario;
 import dev.pizzawunsch.utils.scenario.Scenario;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -54,6 +55,9 @@ public class XtraAppleScenario extends Scenario implements Listener {
      */
     @EventHandler
     public void onBreak(BlockBreakEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getPlayer().getWorld().getName())) {
+            return;
+        }
         // the block that got breaked
         Block block = event.getBlock();
         // if scenario is enabled

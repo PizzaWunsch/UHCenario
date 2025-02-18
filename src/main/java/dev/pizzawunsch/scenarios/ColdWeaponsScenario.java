@@ -28,6 +28,10 @@ public class ColdWeaponsScenario extends Scenario implements Listener {
 
     @EventHandler
     public void onEnchant(PrepareItemEnchantEvent event) {
+        if(UHCenario.getInstance().getMainConfiguration().getConfig().getStringList("disabled_worlds").contains(event.getEnchanter().getWorld().getName())) {
+            return;
+        }
+
         // if scenario is enabled
         if (this.isEnabled()) {
             for (org.bukkit.enchantments.Enchantment enchantment : event.getItem().getEnchantments().keySet()) {
